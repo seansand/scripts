@@ -1,7 +1,8 @@
 //Wffl.groovy
+
 public class Wffl
 {
-   //ASSUMES 12 TEAMS
+   private static final LinkedList pointsList = new LinkedList()
 
    static
    {
@@ -9,23 +10,31 @@ public class Wffl
       //props.put("http.proxyHost", "webproxy.int.westgroup.com");
       //props.put("http.proxyPort", "80");
       
+	  // TEAM COUNT = 12
+      //pointsList.add(0.5); pointsList.add(1.0); pointsList.add(1.5);
+      //pointsList.add(2.0); pointsList.add(2.5); pointsList.add(3.0);
+      //pointsList.add(3.5); pointsList.add(4.0); pointsList.add(4.5);
+      //pointsList.add(5.0); pointsList.add(5.5); pointsList.add(7.5);  // was 9.0
+	  
+  	  // TEAM COUNT = 10
       pointsList.add(0.5); pointsList.add(1.0); pointsList.add(1.5);
       pointsList.add(2.0); pointsList.add(2.5); pointsList.add(3.0);
       pointsList.add(3.5); pointsList.add(4.0); pointsList.add(4.5);
-      pointsList.add(5.0); pointsList.add(5.5); pointsList.add(7.5);  // was 9.0
+                                                pointsList.add(6.5); 
    }
    
-   private static final String YEAR = "2018";
+   private static final String YEAR = "2017";
    private static final String MFL_NBR = "25686";
-   
+   private static int TEAM_COUNT;
    
    private static final String RESULTS_URL =
       "http://www.myfantasyleague.com/" + YEAR + "/export?TYPE=weeklyResults&L=" + MFL_NBR + "&W=#WEEKNBR#"
-   private static final LinkedList pointsList = new LinkedList()
+   
    private static def teamMap = null;
    
    public static void main(String[] args)
    {
+      TEAM_COUNT = pointsList.size()
       println()
       int weekNumber
       try
@@ -143,7 +152,9 @@ public class Wffl
          }
          scoreList = scoreList.sort().reverse()
 
-         for (i in (0..5))   //implies 12 teams
+		   int X = TEAM_COUNT / 2 - 1
+		 
+         for (i in (0..X))   //X == 5 or 6 depending on 10 or 12 teams
          {
             int inPlayoffs = scoreList[i].getTeam().getInPlayoffs();
             scoreList[i].getTeam().setInPlayoffs(inPlayoffs + 1);
@@ -160,53 +171,47 @@ public class Wffl
    // This is the number in URLs (e.g. ?L=24330&F=0001&O=07 for Team America)
    
    private static final String TEAM_KICKASS = "0007";
-   private static final String TEAM_USB     = "0001";
+   private static final String TEAM_AMERICA = "0001";
    private static final String TEAM_HAMMER =  "0008";
-   private static final String TEAM_SPACE  =  "0004";
-   private static final String TEAM_JACK  =   "0012";
+   private static final String TEAM_ROBOT =   "0004";
    private static final String TEAM_SOLI =    "0010";
-   private static final String TEAM_NICK   =  "0005";
+   private static final String TEAM_HITMEN =  "0005";
    private static final String TEAM_CRUD =    "0003";
    private static final String TEAM_KODS =    "0009";
-   private static final String TEAM_ASS   =   "0002";
+   private static final String TEAM_QUINN =   "0002";
    private static final String TEAM_BOOM =    "0006";
-   private static final String TEAM_JOSH  =   "0011";   
    
    public static void printEntryOrder()
    {
       println()
-      println("ENTER:")   //This should be the order that appears on the Standings Adjustment page (also the accounting page)
+      println("ENTER:")   //This should be the order that appears on the Standings Adjustment page
       println()                                        
       println(teamMap.get(TEAM_KICKASS).toCurrentSpString()) 
-      println(teamMap.get(TEAM_USB).toCurrentSpString()) 
+      println(teamMap.get(TEAM_AMERICA).toCurrentSpString()) 
       println(teamMap.get(TEAM_HAMMER).toCurrentSpString()) 
-      println(teamMap.get(TEAM_SPACE).toCurrentSpString()) 
+      println(teamMap.get(TEAM_ROBOT).toCurrentSpString()) 
       println(teamMap.get(TEAM_SOLI).toCurrentSpString()) 
-      println(teamMap.get(TEAM_NICK).toCurrentSpString()) 
+      println(teamMap.get(TEAM_HITMEN).toCurrentSpString()) 
       println(teamMap.get(TEAM_CRUD).toCurrentSpString()) 
       println(teamMap.get(TEAM_KODS).toCurrentSpString()) 
-      println(teamMap.get(TEAM_ASS).toCurrentSpString()) 
+      println(teamMap.get(TEAM_QUINN).toCurrentSpString()) 
       println(teamMap.get(TEAM_BOOM).toCurrentSpString()) 
-      println(teamMap.get(TEAM_JOSH).toCurrentSpString()) 
-      println(teamMap.get(TEAM_JACK).toCurrentSpString()) 
  
    }
    public static void initMap()
    {
       String s
       teamMap = new TreeMap();  
-      s = TEAM_USB;     teamMap.put(s, new Team(s, "U.S.B."))
-      s = TEAM_ASS;     teamMap.put(s, new Team(s, "Adam S. S."))
+      s = TEAM_AMERICA; teamMap.put(s, new Team(s, "Team America"))
+      s = TEAM_QUINN;   teamMap.put(s, new Team(s, "Adam Schefter"))
       s = TEAM_CRUD;    teamMap.put(s, new Team(s, "CRUD"))
-      s = TEAM_JACK;    teamMap.put(s, new Team(s, "Team Jack"))
-      s = TEAM_JOSH;    teamMap.put(s, new Team(s, "Team Josh"))
+      s = TEAM_HITMEN;  teamMap.put(s, new Team(s, "Hernandez's Hitmen"))
       s = TEAM_BOOM;    teamMap.put(s, new Team(s, "BoomShakaLaka"))
       s = TEAM_KICKASS; teamMap.put(s, new Team(s, "Kickass Kamikaze"))
       s = TEAM_HAMMER;  teamMap.put(s, new Team(s, "Hammer"))
       s = TEAM_KODS;    teamMap.put(s, new Team(s, "KOD's"))
       s = TEAM_SOLI;    teamMap.put(s, new Team(s, "Soli Deo Gloria"))
-      s = TEAM_NICK;    teamMap.put(s, new Team(s, "Team Nick"))
-      s = TEAM_SPACE;   teamMap.put(s, new Team(s, "Space Force"))
+      s = TEAM_ROBOT;   teamMap.put(s, new Team(s, "Existential Dread"))
    }   
    public static void getWeekResults(int weekNumber)
    {
@@ -216,11 +221,10 @@ public class Wffl
          it.clearCurrentSp()
       }
       String urlString = RESULTS_URL.replace("#WEEKNBR#", weekNumber + "")
+      
       URL u = new URL(urlString)
       def weeklyResults =
          new XmlSlurper().parseText(u.getText())
-         
-      //println urlString   
       LinkedList scoresList = new LinkedList()
       def allMatchups = weeklyResults.matchup
       //println (allMatchups.size())
