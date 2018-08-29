@@ -65,7 +65,7 @@ for (String line : lineArray)
 		newData << enteredDate.toString() + "  ($duration)"
 		5.times() 
 		{
-		   enteredDate = enteredDate.plusDays(29)
+		   enteredDate = enteredDate.plusDays(28)
 		   newData << enteredDate.toString()	
 		}
 		break

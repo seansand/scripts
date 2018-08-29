@@ -77,7 +77,9 @@ String validateBuffer(String picks)
    
    picks.eachLine() 
    {  
-      if (it.contains("SEAN") || it.contains("RYAN") || it.contains("RAJIV") || it.contains("---"))
+      if (it.contains("SEAN") || it.contains("RYAN") || 
+          it.contains("RICK") ||
+          it.contains("RAJIV") || it.contains("---"))
       {
       }
       else
