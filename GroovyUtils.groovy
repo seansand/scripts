@@ -63,11 +63,11 @@ Integer.metaClass.toCommas =
    return df.format(d);
 }
 
-BasicConfigurator.configure();
-System.setProperty("com.trgr.at.deliverydata.onuds","true");
-System.setProperty("HAProvider.load.file","C:\\edev\\udsweb\\resources\\HAProviderConfig.xml");
-System.setProperty("HAProvider.env","dev"); 
-System.setProperty("com.trgr.at.deliverydata.transportConfigFile", "C:\\work\\DeliveryData\\z-prop\\dev_transportconfig.xml");
+//BasicConfigurator.configure();
+//System.setProperty("com.trgr.at.deliverydata.onuds","true");
+//System.setProperty("HAProvider.load.file","C:\\edev\\udsweb\\resources\\HAProviderConfig.xml");
+//System.setProperty("HAProvider.env","dev"); 
+//System.setProperty("com.trgr.at.deliverydata.transportConfigFile", "C:\\work\\DeliveryData\\z-prop\\dev_transportconfig.xml");
 
 // return value
 
