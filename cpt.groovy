@@ -43,6 +43,7 @@ else
 println enteredDate
 println()
 
+List<Integer> averageList = []
 List dates = []
 List lineArray = []
 List newData = []
@@ -55,6 +56,13 @@ for (String line : lineArray)
    if (line == "")
       break
 
+   Integer averageValue
+   if (line.contains("(")) {
+      String averageValue = line.find(/\([0-9][0-9]\)/)        
+      if (averageValue)
+         averageList << new Integer(averageValue)
+   } 
+  
    List lineTokens = line.split(" ")
    LocalDate thisDate = LocalDate.parse(lineTokens[0])
    int daysBetween = Days.daysBetween(thisDate, enteredDate).getDays()
@@ -80,6 +88,7 @@ for (String line : lineArray)
 }
 
 newData << ""
+newData << "Average = ${(averageList.sum() / averageList.size())}"
 newData << "To modify dates, enter 'today', 'yesterday' or 'YYYY-MM-DD' as a single argument."
 
 f.write("")
