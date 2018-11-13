@@ -1,50 +1,33 @@
 //CountStrings.groovy
 
-evaluate(new File("E:\\groovy\\scripts\\GroovyUtils.groovy"))
+evaluate(new File("C:\\groovy\\scripts\\GroovyUtils.groovy"))
 
 String str =  '''
 
-
-Gross
-Hartley
-Kennedy
-Barthel
-Stephenson
-Amann
-Mahlke
-Tschida
-
-
-
-
-
-
-
-
 Helps
-Carolan
+Gross
 Allen
-Berry
-S. Sandquist
-C. Sandquist
-Hendrie
-Tschida
-
-
-
-
-
-
-
-
-Kennedy
-Gross
-Takhar
 Burch
-Carolan
-Helps
-Amann
+C. Sandquist
 Mahlke
+Hendrie
+Carolan
+
+
+
+
+
+
+
+
+S. Sandquist
+Kennedy
+Hartley
+Takhar
+Mahlke
+Helps
+Allen
+Heichert
 
 
 
@@ -54,11 +37,30 @@ Mahlke
 
 
 Stephenson
+Gross
+Tschida
+Berry
+(no tennis)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tschida
+Kennedy
 Hartley
-Takhar
-Barthel
+Berry
 C. Sandquist
-Hendrie
+Mahlke
 Heichert
 Carolan
 
@@ -69,30 +71,14 @@ Carolan
 
 
 
-Heichert
-Gross
-Burch
-Allen
 S. Sandquist
-C. Sandquist
-Takhar
-Berry
-
-
-
-
-
-
-
-
-Barthel
-Hartley
 Kennedy
 Helps
-S. Sandquist
-Carolan
+Takhar
+Burch
 Mahlke
-Tschida
+Heichert
+Allen
 
 
 
@@ -102,13 +88,29 @@ Tschida
 
 
 Takhar
-Berry
-Allen
-Burch
-Hendrie
-Amann
+Kennedy
+Gross
+Carolan
+S. Sandquist
 Stephenson
-Barthel
+Hendrie
+Berry
+
+
+
+
+
+
+
+
+S. Sandquist
+Tschida
+Hartley
+Stephenson
+C. Sandquist
+Takhar
+Hendrie
+Burch
 
 
 
