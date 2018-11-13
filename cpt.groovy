@@ -58,9 +58,9 @@ for (String line : lineArray)
 
    Integer averageValue
    if (line.contains("(")) {
-      String averageValue = line.find(/\([0-9][0-9]\)/)        
-      if (averageValue)
-         averageList << new Integer(averageValue)
+      String averageValueStr = line.find(/\([0-9][0-9]\)/)        
+      if (averageValueStr)
+         averageList << new Integer(averageValueStr)
    } 
   
    List lineTokens = line.split(" ")
