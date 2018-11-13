@@ -59,8 +59,11 @@ for (String line : lineArray)
    Integer averageValue
    if (line.contains("(")) {
       String averageValueStr = line.find(/\([0-9][0-9]\)/)        
-      if (averageValueStr)
+      if (averageValueStr) {
+         averageValueStr = averageValueStr.replaceAll(/\(/, "")
+         averageValueStr = averageValueStr.replaceAll(/\)/, "")
          averageList << new Integer(averageValueStr)
+      }
    } 
   
    List lineTokens = line.split(" ")
@@ -69,7 +72,7 @@ for (String line : lineArray)
    
    if (Math.abs(daysBetween) < 10)
    {
-        int duration = Days.daysBetween(lastDate, enteredDate).getDays()
+      int duration = Days.daysBetween(lastDate, enteredDate).getDays()
 		newData << enteredDate.toString() + "  ($duration)"
 		5.times() 
 		{
