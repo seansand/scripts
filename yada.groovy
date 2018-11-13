@@ -14,8 +14,12 @@ if (args.size() != 1)
 
 String key = args[0].toLowerCase()
 
-File yadaFile = new File("C:\\Users\\Sean\\Dropbox\\Applications\\Yadabyte\\YadabyteSubText_data.txt")
-
+File yadaFile = 
+[
+   new File("C:\\Users\\Sean\\Dropbox\\Applications\\Yadabyte\\YadabyteSubText_data.txt"),
+   new File("C:\\Users\\Seans\\Dropbox\\Applications\\Yadabyte\\YadabyteSubText_data.txt")
+].find { it.exists() }
+   
 Map map = [:]
 
 yadaFile.eachLine()
