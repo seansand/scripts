@@ -163,14 +163,14 @@ public class Wffl
    private static final String TEAM_USB     = "0001";
    private static final String TEAM_HAMMER =  "0008";
    private static final String TEAM_SPACE  =  "0004";
-   private static final String TEAM_JACK  =   "0012";
+   private static final String TEAM_LEVEON =  "0012";
    private static final String TEAM_SOLI =    "0010";
-   private static final String TEAM_NICK   =  "0005";
+   private static final String TEAM_WENTZ =   "0005";
    private static final String TEAM_CRUD =    "0003";
    private static final String TEAM_KODS =    "0009";
    private static final String TEAM_ASS   =   "0002";
    private static final String TEAM_BOOM =    "0006";
-   private static final String TEAM_JOSH  =   "0011";   
+   private static final String TEAM_GRIT  =   "0011";   
    
    public static void printEntryOrder()
    {
@@ -181,14 +181,15 @@ public class Wffl
       println(teamMap.get(TEAM_USB).toCurrentSpString()) 
       println(teamMap.get(TEAM_HAMMER).toCurrentSpString()) 
       println(teamMap.get(TEAM_SPACE).toCurrentSpString()) 
+      println(teamMap.get(TEAM_LEVEON).toCurrentSpString()) 
       println(teamMap.get(TEAM_SOLI).toCurrentSpString()) 
-      println(teamMap.get(TEAM_NICK).toCurrentSpString()) 
+      println(teamMap.get(TEAM_WENTZ).toCurrentSpString()) 
       println(teamMap.get(TEAM_CRUD).toCurrentSpString()) 
       println(teamMap.get(TEAM_KODS).toCurrentSpString()) 
       println(teamMap.get(TEAM_ASS).toCurrentSpString()) 
       println(teamMap.get(TEAM_BOOM).toCurrentSpString()) 
-      println(teamMap.get(TEAM_JOSH).toCurrentSpString()) 
-      println(teamMap.get(TEAM_JACK).toCurrentSpString()) 
+      println(teamMap.get(TEAM_GRIT).toCurrentSpString()) 
+      
  
    }
    public static void initMap()
@@ -198,14 +199,14 @@ public class Wffl
       s = TEAM_USB;     teamMap.put(s, new Team(s, "U.S.B."))
       s = TEAM_ASS;     teamMap.put(s, new Team(s, "Adam S. S."))
       s = TEAM_CRUD;    teamMap.put(s, new Team(s, "CRUD"))
-      s = TEAM_JACK;    teamMap.put(s, new Team(s, "Le'Veon a Prayer"))
-      s = TEAM_JOSH;    teamMap.put(s, new Team(s, "Grittner's Grinders"))
+      s = TEAM_LEVEON;  teamMap.put(s, new Team(s, "Le'Veon a Prayer"))
+      s = TEAM_GRIT;    teamMap.put(s, new Team(s, "Grittner's Grinders"))
       s = TEAM_BOOM;    teamMap.put(s, new Team(s, "BoomShakaLaka"))
       s = TEAM_KICKASS; teamMap.put(s, new Team(s, "Kickass Kamikaze"))
       s = TEAM_HAMMER;  teamMap.put(s, new Team(s, "Hammer"))
       s = TEAM_KODS;    teamMap.put(s, new Team(s, "KOD's"))
       s = TEAM_SOLI;    teamMap.put(s, new Team(s, "Soli Deo Gloria"))
-      s = TEAM_NICK;    teamMap.put(s, new Team(s, "Wentz Upon a Time"))
+      s = TEAM_WENTZ;   teamMap.put(s, new Team(s, "Wentz Upon a Time"))
       s = TEAM_SPACE;   teamMap.put(s, new Team(s, "Space Force"))
    }   
    public static void getWeekResults(int weekNumber)
@@ -313,7 +314,7 @@ class Score implements Comparable
 }
 class Team
 {
-   public static int TRIALS = 50000;
+   public static int TRIALS = 100000;
 
    String id
    String name

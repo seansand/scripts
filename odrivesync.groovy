@@ -5,8 +5,9 @@
 
 // Note that this is currently coded to *not* recursively sync directories.
 
-String fileOrDirToSync = /E:\odrive\Amazon Cloud Drive\Pictures\2017\2017-09 Elizabeth (age 9.5)/
-
+String fileOrDirToSync = 
+  // /E:\odrive\Amazon Cloud Drive\Pictures\2017\2017-09 Elizabeth (age 9.5)/
+  /E:\odrive\Amazon Cloud Drive\Pictures\2008\2008-03 Elizabeth (Private)/
 
 odriveSync(fileOrDirToSync)
 
