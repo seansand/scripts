@@ -2,7 +2,7 @@
 
 class Open //implements Runnable
 {
-   static final def TOPLEVEL = new File("E:\\groovy\\scripts\\");
+   static final def TOPLEVEL = new File("c:\\groovy\\scripts\\")
    String fileName
 
    public static void main(String[] args)
