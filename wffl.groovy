@@ -163,7 +163,6 @@ public class Wffl
    private static final String TEAM_USB     = "0001";
    private static final String TEAM_HAMMER =  "0008";
    private static final String TEAM_SPACE  =  "0004";
-   private static final String TEAM_LEVEON =  "0012";
    private static final String TEAM_SOLI =    "0010";
    private static final String TEAM_WENTZ =   "0005";
    private static final String TEAM_CRUD =    "0003";
@@ -171,6 +170,7 @@ public class Wffl
    private static final String TEAM_ASS   =   "0002";
    private static final String TEAM_BOOM =    "0006";
    private static final String TEAM_GRIT  =   "0011";   
+   private static final String TEAM_LEVEON =  "0012";
    
    public static void printEntryOrder()
    {
@@ -181,7 +181,6 @@ public class Wffl
       println(teamMap.get(TEAM_USB).toCurrentSpString()) 
       println(teamMap.get(TEAM_HAMMER).toCurrentSpString()) 
       println(teamMap.get(TEAM_SPACE).toCurrentSpString()) 
-      println(teamMap.get(TEAM_LEVEON).toCurrentSpString()) 
       println(teamMap.get(TEAM_SOLI).toCurrentSpString()) 
       println(teamMap.get(TEAM_WENTZ).toCurrentSpString()) 
       println(teamMap.get(TEAM_CRUD).toCurrentSpString()) 
@@ -189,7 +188,7 @@ public class Wffl
       println(teamMap.get(TEAM_ASS).toCurrentSpString()) 
       println(teamMap.get(TEAM_BOOM).toCurrentSpString()) 
       println(teamMap.get(TEAM_GRIT).toCurrentSpString()) 
-      
+      println(teamMap.get(TEAM_LEVEON).toCurrentSpString())       
  
    }
    public static void initMap()
