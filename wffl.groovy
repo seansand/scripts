@@ -1,8 +1,9 @@
 //Wffl.groovy
+
 public class Wffl
 {
    //ASSUMES 12 TEAMS
-
+   
    static
    {
       //Properties props = System.getProperties();
@@ -110,6 +111,11 @@ public class Wffl
    
       Team.TRIALS.times()
       {
+         if (it % 10000 == 0) 
+            print (".")
+         if (it + 1 == Team.TRIALS) 
+            println("")
+            
          teamMap.values().each()
          {
             it.setProjectedSp(it.getTotalSp());
@@ -313,7 +319,7 @@ class Score implements Comparable
 }
 class Team
 {
-   public static int TRIALS = 100000;
+   public static int TRIALS = 500000;
 
    String id
    String name

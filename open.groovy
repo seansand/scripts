@@ -2,7 +2,9 @@
 
 class Open //implements Runnable
 {
-   static final def TOPLEVEL = new File("c:\\groovy\\scripts\\")
+   static final def TOPLEVEL = [new File("c:\\groovy\\scripts\\"),
+                                new File("e:\\groovy\\scripts\\")].find { it.exists() }
+   
    String fileName
 
    public static void main(String[] args)
