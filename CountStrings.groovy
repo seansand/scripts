@@ -1,117 +1,73 @@
 //CountStrings.groovy
 
-evaluate(new File("C:\\groovy\\scripts\\GroovyUtils.groovy"))
+List<File> files = 
+[
+   new File("C:\\groovy\\scripts\\GroovyUtils.groovy"),
+   new File("E:\\groovy\\scripts\\GroovyUtils.groovy")
+]
+
+File f = files.find { it.exists() }
+evaluate(f)
 
 String str =  '''
 
-Helps
 Gross
-Allen
 Burch
-C. Sandquist
-Mahlke
-Hendrie
-Carolan
-
-
-
-
-
-
-
-
-S. Sandquist
-Kennedy
-Hartley
-Takhar
-Mahlke
-Helps
+Tschida
 Allen
-Heichert
+Stephenson
+Punnoose
+Berry
+open
 
 
-
-
-
-
+Kennedy
+Gross
+Tschida
+Hartley
+Burch
+Carolan
+Punnoose
+Allen
 
 
 Stephenson
-Gross
-Tschida
+Kennedy
 Berry
-(no tennis)
+Hartley
+S. Sandquist
+Mahlke
+Heichert
+Burch
 
 
+S. Sandquist
+Helps
+Tschida
+Hartley
+Heichert
+Mahlke
+Carolan
+Allen
 
-
-
-
-
-
-
-
-
-
+Carolan
+Kennedy
+Takhar
+Gross
+Helps
+Mahlke
+Heichert
+Stephenson
 
 
 Tschida
 Kennedy
-Hartley
-Berry
-C. Sandquist
-Mahlke
-Heichert
-Carolan
-
-
-
-
-
-
-
-
-S. Sandquist
-Kennedy
-Helps
-Takhar
-Burch
-Mahlke
-Heichert
-Allen
-
-
-
-
-
-
-
-
-Takhar
-Kennedy
 Gross
-Carolan
-S. Sandquist
-Stephenson
-Hendrie
 Berry
-
-
-
-
-
-
-
-
-S. Sandquist
-Tschida
-Hartley
-Stephenson
-C. Sandquist
+Mahlke
+Punnoose
 Takhar
-Hendrie
-Burch
-
+Carolan
 
 
 
