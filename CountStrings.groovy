@@ -11,6 +11,7 @@ evaluate(f)
 
 String str =  '''
 
+
 Gross
 Burch
 Tschida
@@ -18,7 +19,13 @@ Allen
 Stephenson
 Punnoose
 Berry
-open
+[open]
+
+
+
+
+
+
 
 
 Kennedy
@@ -29,6 +36,12 @@ Burch
 Carolan
 Punnoose
 Allen
+
+
+
+
+
+
 
 
 Stephenson
@@ -41,14 +54,27 @@ Heichert
 Burch
 
 
+
+
+
+
+
+
 S. Sandquist
 Helps
 Tschida
 Hartley
-Heichert
+C. Sandquist
 Mahlke
-Carolan
+Heichert
 Allen
+
+
+
+
+
+
+
 
 Carolan
 Kennedy
@@ -60,15 +86,20 @@ Heichert
 Stephenson
 
 
-Tschida
-Kennedy
+
+
+
+
+
+
+S. Sandquist
+Helps
 Gross
 Berry
-Mahlke
+C. Sandquist
 Punnoose
 Takhar
 Carolan
-
 
 
 '''
