@@ -1,37 +1,38 @@
-//PlayoffCheatSheetMakerAdvanced2017
+//PlayoffCheatSheetMakerAdvanced2018
 
 /*
-TEN    KCC 
-KCC    NEP    NEP
+IND  IND 
+HOU  KCC  KCC
 
-BUF    JAC    PIT NEP
-JAC    PIT
+LAC  BAL  
+BAL  NEP  NEP  KCC
 
-ATL    LAR    MIN   MIN
-LAR    MIN 
+SEA  DAL    
+DAL  LAR  LAR  LAR
 
-CAR    NOS    PHI
-NOS    PHI
+PHI  CHI    
+CHI  NOS  NOS
 
 */
 
+List<Team> teams = [];
+teams << new Team("IND", 2)
+teams << new Team("HOU", 1)
+teams << new Team("LAC", 1)
+teams << new Team("BAL", 2)
+teams << new Team("SEA", 1)
+teams << new Team("DAL", 2)
+teams << new Team("PHI", 1)
+teams << new Team("CHI", 2)
+teams << new Team("KCC", 3)
+teams << new Team("NEP", 2)
+teams << new Team("NOS", 2)
+teams << new Team("LAR", 3)
+
 println();
  
-int IND = 2
-int HOU = 1
-int LAC = 1
-int BAL = 2
-int SEA = 1
-int DAL = 2
-int PHI = 1
-int CHI = 2
-int KCC = 3
-int NEP = 2
-int NOS = 2
-int LAR = 3
-
-assert IND + HOU + LAC + BAL + SEA + DAL + PHI + CHI + KCC + NEP + NOS + LAR == 22
-
+assert Team.totalWeight == 22
+assert Team.map.size() == 12
 
 String fString = /X:\Documents\WFFL\2018\playoffplayers-2018.csv/
 
@@ -50,12 +51,12 @@ fIn.eachLine()
 {
    line ->
    
-   if (line.trim() != "" &&
-       !line.contains("---") &&
-       !line.contains("(I)") &&
-       !line.contains("(S)") )
+   if (line.trim() != "" &&         // ignore blank lines
+       !line.contains("---") &&     // pos header lines
+       !line.contains("(I)") &&     // ignore players on IR
+       !line.contains("(S)") )      // ignore suspended players
    {
-      List tokens = line.split(',');
+      List tokens = line.split(',');   // separator (preferably comma?)
 
       Guy guy = new Guy(tokens, line);
    
@@ -70,31 +71,14 @@ fIn.eachLine()
       else
          wrList.add(guy);
    
-      int score = guy.getScore();
-      int newscore;
-      
-	  String tm = guy.getTeam()
-	  tm = tm.replaceAll('"', "")
+      int guyScore = guy.getScore();
+            
+ 	   String tm = guy.getTeam()
+	   tm = tm.replaceAll('"', "")
 	  
-      switch (tm)
-      {
-         case "IND": newscore = score * IND; break;
-         case "HOU": newscore = score * HOU; break;
-         case "LAC": newscore = score * LAC; break;
-         case "BAL": newscore = score * BAL; break;
-         case "SEA": newscore = score * SEA; break;
-         case "DAL": newscore = score * DAL; break;
-         case "PHI": newscore = score * PHI; break;
-         case "CHI": newscore = score * CHI; break;
-         case "KCC": newscore = score * KCC; break;
-         case "NEP": newscore = score * NEP; break;
-         case "NOS": newscore = score * NOS; break;
-         case "LAR": newscore = score * LAR; break;
-		 
-         default: throw new RuntimeException("Unknown team: $tm");
-      }
+      int newWeightedScore = guyScore * Team.map.get(tm)  // retrieve weight from Team map
       
-      guy.setScore(newscore);
+      guy.setScore(newWeightedScore)
    }
 
 }
@@ -115,6 +99,23 @@ all.each()
 }
 
 
+class Team {
+   static Float totalWeight = 0
+   static Map map = [:]
+   
+   String name
+   Float weight
+   
+   Team(String n, Float w) 
+   {
+      this.name = n
+      this.weight = w
+      totalWeight += w
+      map.put(n, w)
+   }
+   
+}
+
 
 class Guy implements Comparable
 {
@@ -127,19 +128,18 @@ class Guy implements Comparable
       this.list = list;
 	   this.line = line;
       
-      //score = new Integer(list[1]);
-      score = 0
-      score += new Integer(list[15].trim() ?: 0)  //week 13
-      score += new Integer(list[16].trim() ?: 0)  //week 14
-      score += new Integer(list[17].trim() ?: 0)  //week 15
-      score += new Integer(list[18].trim() ?: 0)  //week 16
+      //score = new Integer(list[1]);             // can use either the total of all weeks
+      
+      score = 0                                   // or selected weeks (like four recent weeks & not 17)
+      score += new Integer(list[15].trim() ?: 0)  // week 13
+      score += new Integer(list[16].trim() ?: 0)  // week 14
+      score += new Integer(list[17].trim() ?: 0)  // week 15
+      score += new Integer(list[18].trim() ?: 0)  // week 16
       
    }
    
    public String getPos()
    {
-      //return list[2].trim();
-	  
 	  if (list[0].contains("Def")) return "Def"
 	  if (list[0].contains("QB")) return "QB"
 	  if (list[0].contains("RB")) return "RB"
@@ -147,24 +147,17 @@ class Guy implements Comparable
 	  if (list[0].contains("TE")) return "TE"
 	  if (list[0].contains("PK")) return "PK"
 	  throw new RuntimeException("Unknown Pos");
-	  
    }
 
    public String getTeam()
    {
-	  if (list[0].contains("IND")) return "NEP"
-	  if (list[0].contains("HOU")) return "HOU"
-	  if (list[0].contains("LAC")) return "LAC"
-	  if (list[0].contains("BAL")) return "BAL"
-	  if (list[0].contains("SEA")) return "SEA"
-	  if (list[0].contains("DAL")) return "DAL"
-	  if (list[0].contains("PHI")) return "PHI"
-	  if (list[0].contains("CHI")) return "CHI"
-	  if (list[0].contains("NEP")) return "NEP"
-	  if (list[0].contains("NOS")) return "NOS"
-     if (list[0].contains("LAR")) return "LAR"
-	  if (list[0].contains("KCC")) return "KCC"
-	  throw new RuntimeException("Unknown team");
+     String teamNameFound = null
+     Team.map.each { k, v ->
+        if (this.list[0].contains(k)) {
+           teamNameFound = k
+        }
+     }
+     return teamNameFound
    }   
    
    public String toString()
