@@ -5,19 +5,20 @@
 
 // Note that this is currently coded to *not* recursively sync directories.
 
-ODRIVE_VER = "6442"  // GLOBAL VARIABLE, directory in u:\.odrive\bin
+ODRIVE_VER = "6472"  // GLOBAL VARIABLE, directory in u:\.odrive\bin
 
 def filesOrDirsToSync = 
-  // /E:\odrive\Amazon Cloud Drive\Pictures\2017\2017-09 Elizabeth (age 9.5)/
-  // /E:\odrive\Amazon Cloud Drive\Pictures\2008\2008-03 Elizabeth (Private)/
+  ///E:\odrive\Amazon Cloud Drive\Pictures\2017\2017-09 Elizabeth (age 9.5)/
+  //E:\odrive\Amazon Cloud Drive\Pictures\2008\2008-03 Elizabeth (Private)/
+  //E:\odrive\Amazon Cloud Drive\Pictures\2017\2017-03 Elizabeth (age 9)/,
+  //E:\odrive\Amazon Cloud Drive\Pictures\2017\2017-09 Minnesota State Capitol/,
+  //E:\odrive\Amazon Cloud Drive\Pictures\2016\2016-03 Elizabeth (age 8)/,
+  //E:\odrive\Amazon Cloud Drive\Pictures\2016\2016-08 Chicago/,
+  //E:\odrive\Amazon Cloud Drive\Pictures\2016\2016-10 Elizabeth (age 8.5)/,
+  //E:\odrive\Amazon Cloud Drive\Pictures\2015\2015-05 Elizabeth (age 7)/,
+  //E:\odrive\Amazon Cloud Drive\Pictures\2015\2015-10 Elizabeth (age 7.5)/,
   [
-  /E:\odrive\Amazon Cloud Drive\Pictures\2017\2017-03 Elizabeth (age 9)/,
-  /E:\odrive\Amazon Cloud Drive\Pictures\2017\2017-09 Minnesota State Capitol/,
-  /E:\odrive\Amazon Cloud Drive\Pictures\2016\2016-03 Elizabeth (age 8)/,
-  /E:\odrive\Amazon Cloud Drive\Pictures\2016\2016-08 Chicago/,
-  /E:\odrive\Amazon Cloud Drive\Pictures\2016\2016-10 Elizabeth (age 8.5)/,
-  /E:\odrive\Amazon Cloud Drive\Pictures\2015\2015-05 Elizabeth (age 7)/,
-  /E:\odrive\Amazon Cloud Drive\Pictures\2015\2015-10 Elizabeth (age 7.5)/,
+   /  E:\odrive\Amazon Cloud Drive\Pictures\2000\2000 Misc  /.trim()
   ]
 
 

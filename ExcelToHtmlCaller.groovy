@@ -3,7 +3,7 @@
 
 import java.util.regex.*;
 
-YEAR = "2018"
+YEAR = "2019"
 
 String excelFileIn = "x:\\Mapped\\WFFL\\${YEAR}.xlsx";
 String htmlFile1 = "x:\\Mapped\\WFFL\\${YEAR}-orig.html";
