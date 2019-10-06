@@ -28,17 +28,26 @@ def line = sysin.readLine()
 
 while (line.trim() != ".")
 {
-   line = line.replaceAll("JAX", "JAC")
-   line = line.replaceAll("KCC", "KC ")
-   line = line.replaceAll("NOS", "NO ")
-   line = line.replaceAll("GBP", "GB ")
-   line = line.replaceAll("SFO", "SF ")
-   line = line.replaceAll("TBB", "TB ")
-   line = line.replaceAll("NEP", "NE ")
-   line = line.replaceAll("ARZ", "ARI")
-   line = line.replaceAll("AZ",  "ARI")
+   if (line.trim() != '')
+   {
+      line = line.replaceAll("JAX", "JAC")
+      line = line.replaceAll("KCC", "KC ")
+      line = line.replaceAll("NOS", "NO ")
+      line = line.replaceAll("GBP", "GB ")
+      line = line.replaceAll("SFO", "SF ")
+      line = line.replaceAll("TBB", "TB ")
+      line = line.replaceAll("NEP", "NE ")
+      line = line.replaceAll("ARZ", "ARI")
+      line = line.replaceAll("AZ",  "ARI")
+      
+      /*line = line.replaceAll("        ", "   ");
+        line = line.replaceAll("       " , "   ");
+        line = line.replaceAll("      "  , "   ");
+        line = line.replaceAll("     "   , "   ");
+        line = line.replaceAll("    "   ,  "   ");  this doesn't align names */
 
-   buf.append(line + System.getProperty("line.separator"))
+      buf.append(line + System.getProperty("line.separator"))
+   }
    line = sysin.readLine()
 }
 
@@ -54,7 +63,7 @@ def errorMessage = validateBuffer(buf.toString().trim());
 if (null == errorMessage || errorMessage == "")
 {
    assert !("test" in args)
-
+   
    localFile.write("NNFP Week ($weekNumber)" + ls + ls)
    localFile.append(buf.toString().trim())
 }
@@ -66,6 +75,7 @@ else
 }
 
 println("Done, copied file.")
+
 
 String validateBuffer(String picks) 
 { 
