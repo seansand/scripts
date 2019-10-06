@@ -11,79 +11,46 @@ evaluate(f)
 
 String str =  '''
 
-
+Burch
+Allen
 Gross
-Burch
-Tschida
-Allen
-Stephenson
-Punnoose
-Berry
-[open]
-
-
-
-
-
-
-
-
-Kennedy
-Gross
-Tschida
-Hartley
-Burch
-Carolan
-Punnoose
-Allen
-
-
-
-
-
-
-
-
-Stephenson
-Kennedy
-Berry
-Hartley
-S. Sandquist
-Mahlke
-Heichert
-Burch
-
-
-
-
-
-
-
-
-S. Sandquist
-Helps
-Tschida
-Hartley
-C. Sandquist
-Mahlke
-Heichert
-Allen
-
-
-
-
-
-
-
-
-Carolan
-Kennedy
 Takhar
-Gross
-Helps
-Mahlke
+C. Sandquist
 Heichert
+Helps
+Punnoose
+
+
+
+
+
+
+
+
+Helps
+Allen
+Gross
+Burch
+S. Sandquist
 Stephenson
+Berry
+Takhar
+
+
+
+
+
+
+
+
+Helps
+Gross
+Burch
+Punnoose
+S. Sandquist
+C. Sandquist
+Takhar
+Berry
 
 
 
@@ -93,14 +60,61 @@ Stephenson
 
 
 S. Sandquist
+Larson
+Stephenson
+Tschida
+C. Sandquist
+Heichert
+Carolan
+Punnoose
+
+
+
+
+
+
+
+
 Helps
 Gross
+Stephenson
+Tschida
+Heichert
+Takhar
+Burch
+Berry
+
+
+
+
+
+
+
+
+S. Sandquist
+Stephenson
+Larson
 Berry
 C. Sandquist
-Punnoose
+Allen
 Takhar
 Carolan
 
+
+
+
+
+
+
+
+Gross
+Stephenson
+Burch
+Tschida
+Heichert
+Allen
+Punnoose
+Berry
 
 '''
 

@@ -2,10 +2,16 @@
 
 //U:\appdata\local\programs\python\python37\python U:\.odrive\bin\6382\cli\odrive.py sync "E:\odrive\Amazon Cloud Drive\Pictures\2017\2017-08 Marion-Chicago\IMG_20170820_155548.jpg.cloud"
 
-
 // Note that this is currently coded to *not* recursively sync directories.
 
-ODRIVE_VER = "6472"  // GLOBAL VARIABLE, directory in u:\.odrive\bin
+File ODRIVE_DIR = new File(/C:\Users\Sean\.odrive/)
+List files = ODRIVE_DIR.listFiles()
+assert files.size() == 1  // should only be the one directory, whose name we need
+
+// GLOBAL VARIABLE
+// directory name in u:\.odrive\bin  (something like "6472")
+
+ODRIVE_VER == files[0].getName()
 
 def filesOrDirsToSync = 
   ///E:\odrive\Amazon Cloud Drive\Pictures\2017\2017-09 Elizabeth (age 9.5)/
