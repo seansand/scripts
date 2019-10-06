@@ -1,27 +1,27 @@
 //nnfp538.groovy
 String pickAndPercentage = '''
 
-min 99
-pit 98
-phi 77
-det 64
-ind 56
-ne 91
-was 61
-sea 75
-mia 51
-atl 61
-bal 77
-jac 50
-kc 65
-no 73
-lac 71
-lar 85
+CHI 64
+MIN 59
+BAL 61
+NYJ 55
+KC  58
+LAR 52
+CLE 60
+PHI 77
+SEA 75
+LAC 72
+DET 51
+DAL 74
+TB  55
+NE  68
+NO  68
+OAK 51
 
 '''
 
-
-
+String site1 = "http://projects.fivethirtyeight.com/2019-nfl-predictions"
+String site2 = "http://seansand.appspot.com/nnfpsort.html"
 
 
 class Matchup
@@ -36,6 +36,9 @@ List matchupList = []
 pickAndPercentage.eachLine()
 {
    line ->
+   
+   line = line.replaceAll("\\s+", " ")
+   
    if (line.trim() != "")
    {
       List token = line.split(" ")
@@ -62,13 +65,8 @@ matchupList.eachWithIndex()
    println(matchup.team + " " + formatInt(1 + i) + "        " + matchup.percent)
 }
 println()
-println('''
-http://projects.fivethirtyeight.com/2017-nfl-predictions
-'''.trim())
-println(
-'''
-http://seansand.appspot.com/nnfpsort.html
-'''.trim())
+println(site1)
+println(site2)
 println()
  
 String formatInt(Integer i)
