@@ -4,14 +4,14 @@
 
 // Note that this is currently coded to *not* recursively sync directories.
 
-File ODRIVE_DIR = new File(/C:\Users\Sean\.odrive/)
+File ODRIVE_DIR = new File(/C:\Users\Sean\.odrive\bin/)
 List files = ODRIVE_DIR.listFiles()
+
 assert files.size() == 1  // should only be the one directory, whose name we need
 
 // GLOBAL VARIABLE
 // directory name in u:\.odrive\bin  (something like "6472")
-
-ODRIVE_VER == files[0].getName()
+ODRIVE_VER = files[0].getName()
 
 def filesOrDirsToSync = 
   ///E:\odrive\Amazon Cloud Drive\Pictures\2017\2017-09 Elizabeth (age 9.5)/
@@ -24,7 +24,7 @@ def filesOrDirsToSync =
   //E:\odrive\Amazon Cloud Drive\Pictures\2015\2015-05 Elizabeth (age 7)/,
   //E:\odrive\Amazon Cloud Drive\Pictures\2015\2015-10 Elizabeth (age 7.5)/,
   [
-   /  E:\odrive\Amazon Cloud Drive\Pictures\2000\2000 Misc  /.trim()
+   /  E:\odrive\Amazon Cloud Drive\Pictures\2009\2009-03 Elizabeth's First Birthday  /.trim()
   ]
 
 
