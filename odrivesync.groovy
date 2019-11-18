@@ -24,7 +24,7 @@ def filesOrDirsToSync =
   //E:\odrive\Amazon Cloud Drive\Pictures\2015\2015-05 Elizabeth (age 7)/,
   //E:\odrive\Amazon Cloud Drive\Pictures\2015\2015-10 Elizabeth (age 7.5)/,
   [
-   /  E:\odrive\Amazon Cloud Drive\Pictures\2009\2009-03 Elizabeth's First Birthday  /.trim()
+   /  E:\odrive\Amazon Cloud Drive\Pictures\2008\2008-06 Elizabeth (Sears)  /.trim()
   ]
 
 

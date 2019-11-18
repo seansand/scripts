@@ -40,7 +40,7 @@ while (line.trim() != ".")
       line = line.replaceAll("ARZ", "ARI")
       line = line.replaceAll("AZ",  "ARI")
       
-      line = line.replaceAll("     ", "  ");  // comment out if a problem.
+      line = line.replaceAll("      ", "   ");  // comment out if a problem.
 
       buf.append(line + System.getProperty("line.separator"))
    }

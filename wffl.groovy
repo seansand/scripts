@@ -328,7 +328,7 @@ class Score implements Comparable
 }
 class Team
 {
-   public static int TRIALS = 50000;
+   public static int TRIALS = 200000;
 
    String id
    String name
@@ -390,10 +390,20 @@ class Team
    public static String getPercentage(def a, def b)
    {
       def quotient = (b == 0) ? 0 : a / b
-      quotient *= 100   
-      quotient = Math.round(quotient)
-      //quotient = quotient / 100
-      return quotient + "%  (" + a +")";
+      def roundNumberQuotient
+      def round3DecimalsQuotient
+      
+      roundNumberQuotient = quotient * 100   
+      roundNumberQuotient = Math.round(roundNumberQuotient)
+      roundNumberQuotient = (roundNumberQuotient + '%     ').substring(0, 5)
+
+      round3DecimalsQuotient = quotient * 100
+      //round3DecimalsQuotient = Math.round(roundNumberQuotient)
+      round3DecimalsQuotient = (round3DecimalsQuotient + '     ').substring(0, 5)
+
+      //return roundNumberQuotient + "%  (" + a +")";
+      
+      return roundNumberQuotient + "(" + round3DecimalsQuotient + ") " + a;
    }
 
 }
