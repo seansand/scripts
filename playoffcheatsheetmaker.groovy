@@ -2,7 +2,7 @@
 
 //String fString = "C:\\Users\\Sean\\Dropbox\\Documents\\WFFL\\2012-playoff-cheatsheet1.txt";
 
-String fString = /x:\documents\wffl\2017\stats-1.txt/
+String fString = /C:\Users\Sean\Dropbox\Documents\WFFL\2019\2019-playoff-cheat-sheet.txt/
 
 File fIn = new File(fString)
 File fOut = new File(fString + ".out.txt")
@@ -26,9 +26,9 @@ fIn.eachLine()
 
    teams.each()
    {
-     if (line.contains(it) || line.contains("---"))
+     if (line.contains(it) || line.trim().size() == 0)
 	  {
-	     keep = true
+	      keep = true
          line = line.replace(it, "," + it + ",");
 	  }
    }
