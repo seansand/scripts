@@ -17,26 +17,18 @@ public class Wffl
       //pointsList.add(5.0); pointsList.add(5.5); pointsList.add(7.5);  // was 9.0
 	  
   	  // TEAM COUNT = 10
-      //pointsList.add(0.5); pointsList.add(1.0); pointsList.add(1.5);
-      //pointsList.add(2.0); pointsList.add(2.5); pointsList.add(3.0);
-      //pointsList.add(3.5); pointsList.add(4.0); pointsList.add(4.5);
-      //                                          pointsList.add(6.5); 
-                                                
-  	  // TEAM COUNT = 11
       pointsList.add(0.5); pointsList.add(1.0); pointsList.add(1.5);
       pointsList.add(2.0); pointsList.add(2.5); pointsList.add(3.0);
       pointsList.add(3.5); pointsList.add(4.0); pointsList.add(4.5);
-      pointsList.add(5.0);                      pointsList.add(7.0);                                                 
-                                                
+                                                pointsList.add(6.5); 
    }
    
-   private static final String YEAR = "2020";
+   private static final String YEAR = "2019";
    private static final String MFL_NBR = "25686";
    private static int TEAM_COUNT;
    
    private static final String RESULTS_URL =
-      "https://api.myfantasyleague.com/" + YEAR + "/export?TYPE=weeklyResults&L=" + MFL_NBR + "&W=#WEEKNBR#"
-      //was   "http://www.myfantasyleague.com/" + YEAR + "/export?TYPE=weeklyResults&L=" + MFL_NBR + "&W=#WEEKNBR#"
+      "http://www.myfantasyleague.com/" + YEAR + "/export?TYPE=weeklyResults&L=" + MFL_NBR + "&W=#WEEKNBR#"
    
    private static def teamMap = null;
    
@@ -178,51 +170,48 @@ public class Wffl
    
    // This is the number in URLs (e.g. ?L=24330&F=0001&O=07 for Team America)
    
-   private static final String TEAM1 = "0001";
-   private static final String TEAM2 = "0002";
-   private static final String TEAM3 = "0003";
-   private static final String TEAM4 = "0004";
-   private static final String TEAM5 = "0005";
-   private static final String TEAM6 = "0006";
-   private static final String TEAM7 = "0007";
-   private static final String TEAM8 = "0008";
-   private static final String TEAM9 = "0009";
-   private static final String TEAM10 = "0010";
-   private static final String TEAM11 = "0011";
+   private static final String TEAM_CHAR = "0001";
+   private static final String TEAM_ADAM = "0002";
+   private static final String TEAM_CRUD = "0003";
+   private static final String TEAM_ZOMB = "0004";
+   private static final String TEAM_GGRI = "0005";
+   private static final String TEAM_BOOM = "0006";
+   private static final String TEAM_KICK = "0007";
+   private static final String TEAM_HAMM = "0008";
+   private static final String TEAM_LEVE = "0009";
+   private static final String TEAM_SDGL = "0010";
    
    public static void printEntryOrder()
    {
       println()
       println("ENTER:")   //This should be the order that appears on the Standings Adjustment page
       println()                                        
-      println(teamMap.get(TEAM1).toCurrentSpString()) 
-      println(teamMap.get(TEAM2).toCurrentSpString()) 
-      println(teamMap.get(TEAM3).toCurrentSpString()) 
-      println(teamMap.get(TEAM4).toCurrentSpString()) 
-      println(teamMap.get(TEAM5).toCurrentSpString()) 
-      println(teamMap.get(TEAM6).toCurrentSpString()) 
-      println(teamMap.get(TEAM7).toCurrentSpString()) 
-      println(teamMap.get(TEAM8).toCurrentSpString()) 
-      println(teamMap.get(TEAM9).toCurrentSpString()) 
-      println(teamMap.get(TEAM10).toCurrentSpString()) 
-      println(teamMap.get(TEAM11).toCurrentSpString()) 
+      println(teamMap.get(TEAM_CHAR).toCurrentSpString()) 
+      println(teamMap.get(TEAM_ADAM).toCurrentSpString()) 
+      println(teamMap.get(TEAM_CRUD).toCurrentSpString()) 
+      println(teamMap.get(TEAM_ZOMB).toCurrentSpString()) 
+      println(teamMap.get(TEAM_GGRI).toCurrentSpString()) 
+      println(teamMap.get(TEAM_BOOM).toCurrentSpString()) 
+      println(teamMap.get(TEAM_KICK).toCurrentSpString()) 
+      println(teamMap.get(TEAM_HAMM).toCurrentSpString()) 
+      println(teamMap.get(TEAM_LEVE).toCurrentSpString()) 
+      println(teamMap.get(TEAM_SDGL).toCurrentSpString()) 
  
    }
    public static void initMap()
    {
       String s
       teamMap = new TreeMap();  
-      s = TEAM1; teamMap.put(s,  new Team(s, "CharlieHorse"))
-      s = TEAM2; teamMap.put(s,  new Team(s, "Adam Schefter"))
-      s = TEAM3; teamMap.put(s,  new Team(s, "CRUD"))
-      s = TEAM4; teamMap.put(s,  new Team(s, "Fool Pitiers"))
-      s = TEAM5; teamMap.put(s,  new Team(s, "Mason's Team"))
-      s = TEAM6; teamMap.put(s,  new Team(s, "Zach's Team"))
-      s = TEAM7; teamMap.put(s,  new Team(s, "K. Kamikaze"))
-      s = TEAM8; teamMap.put(s,  new Team(s, "Hammer"))
-      s = TEAM9; teamMap.put(s,  new Team(s, "Le'V. Prayer"))
-      s = TEAM10; teamMap.put(s, new Team(s, "S.D. Gloria"))
-      s = TEAM11; teamMap.put(s, new Team(s, "Grace's Team"))
+      s = TEAM_CHAR; teamMap.put(s, new Team(s, "CharlieHorse"))
+      s = TEAM_ADAM; teamMap.put(s, new Team(s, "Adam Schefter"))
+      s = TEAM_CRUD; teamMap.put(s, new Team(s, "CRUD"))
+      s = TEAM_ZOMB; teamMap.put(s, new Team(s, "Zombie Pres."))
+      s = TEAM_GGRI; teamMap.put(s, new Team(s, "G. Grinders"))
+      s = TEAM_BOOM; teamMap.put(s, new Team(s, "BoomShakaLaka"))
+      s = TEAM_KICK; teamMap.put(s, new Team(s, "K. Kamikaze"))
+      s = TEAM_HAMM; teamMap.put(s, new Team(s, "Hammer"))
+      s = TEAM_LEVE; teamMap.put(s, new Team(s, "Le'V. Prayer"))
+      s = TEAM_SDGL; teamMap.put(s, new Team(s, "S.D. Gloria"))
    }   
    public static void getWeekResults(int weekNumber)
    {
@@ -234,17 +223,8 @@ public class Wffl
       String urlString = RESULTS_URL.replace("#WEEKNBR#", weekNumber + "")
       
       URL u = new URL(urlString)
-      
-      //temp
-      //println urlString
-      //println u.getText()
-      
-      String urlText = u.getText()    //this is the real code
-      
-      //urlText = TestText.getText()    //use when testing
-      
       def weeklyResults =
-         new XmlSlurper().parseText(urlText)
+         new XmlSlurper().parseText(u.getText())
          
       //println u.getText()   //TODO SRS TEMP
          
@@ -254,14 +234,8 @@ public class Wffl
       allMatchups.each()
       {
          def twoFranchises = it.franchise
-         try {
-            BigDecimal score0 = new BigDecimal(twoFranchises[0].@score.text())
-            BigDecimal score1 = new BigDecimal(twoFranchises[1].@score.text())
-         }
-         catch (NumberFormatException e) {
-            println("Problem reading scores from $u, probably because score data is not there yet.")
-            throw e;
-         }
+         int score0 = Integer.parseInt(twoFranchises[0].@score.text())
+         int score1 = Integer.parseInt(twoFranchises[1].@score.text())
          String id0 = twoFranchises[0].@id.text()
          String id1 = twoFranchises[1].@id.text()
         
@@ -272,27 +246,22 @@ public class Wffl
             println("$k :: $v")
          }
 */         
-         if (score0 > score1 && id0 != "AVG")
+         if (score0 > score1)
          {
             teamMap.get(id0).addSp(6.0)
          }
-         else if (score1 > score0 && id1 != "AVG")
+         else if (score1 > score0)
          {
             teamMap.get(id1).addSp(6.0)
          }
          else if (score1 == score0)
          {
-            if (id0 != "AVG")
-               teamMap.get(id0).addSp(3.0)
-            if (id1 != "AVG")   
-               teamMap.get(id1).addSp(3.0)
+            teamMap.get(id0).addSp(3.0)
+            teamMap.get(id1).addSp(3.0)
          }
-         
-         if (id0 != "AVG")
-            scoresList.add(new Score(score0, teamMap.get(id0)))
-            
-         if (id1 != "AVG")   
-            scoresList.add(new Score(score1, teamMap.get(id1)))
+         //println "$score0 $score1 <="
+         scoresList.add(new Score(score0, teamMap.get(id0)))
+         scoresList.add(new Score(score1, teamMap.get(id1)))
       }
       
       /* SRS Mean Machine Note **
@@ -300,8 +269,6 @@ public class Wffl
       If using "Mean Machine", sum scoresList, take the average (divide by 11), then replace the zero score with the average (after sorting)
       
       2015 Note: This may never be necessary because the MyFL system has some facility for doing mean machine; try that first.
-      
-      2020 Note: I am indeed trying to accommodate the MyFL way of doing it.
       
       /**/
       
@@ -439,39 +406,4 @@ class Team
       return roundNumberQuotient + "(" + round3DecimalsQuotient + ") " + a;
    }
 
-}
-
-public class TestText
-{
-   public static String getText()
-   {
-      return '''
-         <weeklyResults week="1">
-           <matchup regularSeason="1">
-             <franchise score="10" id="0005" spread="-0" isHome="0" result="L"></franchise>
-             <franchise score="20" id="0006" spread="0" isHome="1" result="W"></franchise>
-           </matchup>
-           <matchup regularSeason="1">
-             <franchise score="11" id="0007" spread="-0" isHome="0" result="L"></franchise>
-             <franchise score="12" id="0008" spread="0" isHome="1" result="W"></franchise>
-           </matchup>
-           <matchup regularSeason="1">
-             <franchise score="14" id="0009" spread="-0" isHome="0" result="T"></franchise>
-             <franchise score="14" id="0010" spread="0" isHome="1" result="T"></franchise>
-           </matchup>
-           <matchup regularSeason="1">
-             <franchise score="44" id="0011" spread="-0" isHome="0" result="W"></franchise>
-             <franchise score="44" id="AVG" spread="0" isHome="1" result="L"></franchise>
-           </matchup>
-           <matchup regularSeason="1">
-             <franchise score="50" id="0001" spread="-0" isHome="0" result="W"></franchise>
-             <franchise score="2" id="0004" spread="0" isHome="1" result="L"></franchise>
-           </matchup>
-           <matchup regularSeason="1">
-             <franchise score="3" id="0002" spread="-0" isHome="0" result="L"></franchise>
-             <franchise score="7" id="0003" spread="0" isHome="1" result="W"></franchise>
-           </matchup>
-         </weeklyResults>
-   '''
-   }
 }
