@@ -241,7 +241,7 @@ public class Wffl
       
       String urlText = u.getText()    //this is the real code
       
-      //urlText = TestText.getText()    //use when testing
+      //urlText = TestText.getText()  //use when testing only
       
       def weeklyResults =
          new XmlSlurper().parseText(urlText)
@@ -253,10 +253,13 @@ public class Wffl
       //println (allMatchups.size())
       allMatchups.each()
       {
+         BigDecimal score0
+         BigDecimal score1
+      
          def twoFranchises = it.franchise
          try {
-            BigDecimal score0 = new BigDecimal(twoFranchises[0].@score.text())
-            BigDecimal score1 = new BigDecimal(twoFranchises[1].@score.text())
+            score0 = new BigDecimal(twoFranchises[0].@score.text())
+            score1 = new BigDecimal(twoFranchises[1].@score.text())
          }
          catch (NumberFormatException e) {
             println("Problem reading scores from $u, probably because score data is not there yet.")
