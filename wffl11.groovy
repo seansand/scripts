@@ -162,7 +162,7 @@ public class Wffl
 
 		   int X = TEAM_COUNT / 2 - 1
 		 
-         for (i in (0..X))   //X == 5 or 6 depending on 10 or 12 teams
+         for (i in (0..X))   // TOP X teams depends on TEAM_COUNT...10 or 11 => 5, 12 => 6
          {
             int inPlayoffs = scoreList[i].getTeam().getInPlayoffs();
             scoreList[i].getTeam().setInPlayoffs(inPlayoffs + 1);

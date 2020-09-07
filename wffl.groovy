@@ -17,16 +17,16 @@ public class Wffl
       //pointsList.add(5.0); pointsList.add(5.5); pointsList.add(7.5);  // was 9.0
 	  
   	  // TEAM COUNT = 10
-      //pointsList.add(0.5); pointsList.add(1.0); pointsList.add(1.5);
-      //pointsList.add(2.0); pointsList.add(2.5); pointsList.add(3.0);
-      //pointsList.add(3.5); pointsList.add(4.0); pointsList.add(4.5);
-      //                                          pointsList.add(6.5); 
-                                                
-  	  // TEAM COUNT = 11
       pointsList.add(0.5); pointsList.add(1.0); pointsList.add(1.5);
       pointsList.add(2.0); pointsList.add(2.5); pointsList.add(3.0);
       pointsList.add(3.5); pointsList.add(4.0); pointsList.add(4.5);
-      pointsList.add(5.0);                      pointsList.add(7.0);                                                 
+                                                pointsList.add(6.5); 
+                                                
+  	  // TEAM COUNT = 11
+      //pointsList.add(0.5); pointsList.add(1.0); pointsList.add(1.5);
+      //pointsList.add(2.0); pointsList.add(2.5); pointsList.add(3.0);
+      //pointsList.add(3.5); pointsList.add(4.0); pointsList.add(4.5);
+      //pointsList.add(5.0);                      pointsList.add(7.0);                                                 
                                                 
    }
    
@@ -162,7 +162,7 @@ public class Wffl
 
 		   int X = TEAM_COUNT / 2 - 1
 		 
-         for (i in (0..X))   //X == 5 or 6 depending on 10 or 12 teams
+         for (i in (0..X))   // TOP X teams depends on TEAM_COUNT...10 or 11 => 5, 12 => 6
          {
             int inPlayoffs = scoreList[i].getTeam().getInPlayoffs();
             scoreList[i].getTeam().setInPlayoffs(inPlayoffs + 1);
@@ -188,7 +188,6 @@ public class Wffl
    private static final String TEAM8 = "0008";
    private static final String TEAM9 = "0009";
    private static final String TEAM10 = "0010";
-   private static final String TEAM11 = "0011";
    
    public static void printEntryOrder()
    {
@@ -205,8 +204,6 @@ public class Wffl
       println(teamMap.get(TEAM8).toCurrentSpString()) 
       println(teamMap.get(TEAM9).toCurrentSpString()) 
       println(teamMap.get(TEAM10).toCurrentSpString()) 
-      println(teamMap.get(TEAM11).toCurrentSpString()) 
- 
    }
    public static void initMap()
    {
@@ -216,13 +213,12 @@ public class Wffl
       s = TEAM2; teamMap.put(s,  new Team(s, "Adam Schefter"))
       s = TEAM3; teamMap.put(s,  new Team(s, "CRUD"))
       s = TEAM4; teamMap.put(s,  new Team(s, "Fool Pitiers"))
-      s = TEAM5; teamMap.put(s,  new Team(s, "Mason's Team"))
+      s = TEAM5; teamMap.put(s,  new Team(s, "Grace's Team"))
       s = TEAM6; teamMap.put(s,  new Team(s, "Zach's Team"))
       s = TEAM7; teamMap.put(s,  new Team(s, "K. Kamikaze"))
       s = TEAM8; teamMap.put(s,  new Team(s, "Hammer"))
       s = TEAM9; teamMap.put(s,  new Team(s, "Le'V. Prayer"))
-      s = TEAM10; teamMap.put(s, new Team(s, "S.D. Gloria"))
-      s = TEAM11; teamMap.put(s, new Team(s, "Grace's Team"))
+      s = TEAM10;teamMap.put(s,  new Team(s, "S.D. Gloria"))
    }   
    public static void getWeekResults(int weekNumber)
    {
@@ -463,16 +459,12 @@ public class TestText
              <franchise score="14" id="0010" spread="0" isHome="1" result="T"></franchise>
            </matchup>
            <matchup regularSeason="1">
-             <franchise score="44" id="0011" spread="-0" isHome="0" result="W"></franchise>
-             <franchise score="44" id="AVG" spread="0" isHome="1" result="L"></franchise>
-           </matchup>
-           <matchup regularSeason="1">
              <franchise score="50" id="0001" spread="-0" isHome="0" result="W"></franchise>
-             <franchise score="2" id="0004" spread="0" isHome="1" result="L"></franchise>
+             <franchise score="2"  id="0004" spread="0" isHome="1" result="L"></franchise>
            </matchup>
            <matchup regularSeason="1">
-             <franchise score="3" id="0002" spread="-0" isHome="0" result="L"></franchise>
-             <franchise score="7" id="0003" spread="0" isHome="1" result="W"></franchise>
+             <franchise score="3"  id="0002" spread="-0" isHome="0" result="L"></franchise>
+             <franchise score="7"  id="0003" spread="0" isHome="1" result="W"></franchise>
            </matchup>
          </weeklyResults>
    '''
