@@ -217,7 +217,7 @@ public class Wffl
       s = TEAM6; teamMap.put(s,  new Team(s, "Zach's Team"))
       s = TEAM7; teamMap.put(s,  new Team(s, "K. Kamikaze"))
       s = TEAM8; teamMap.put(s,  new Team(s, "Hammer"))
-      s = TEAM9; teamMap.put(s,  new Team(s, "Le'V. Prayer"))
+      s = TEAM9; teamMap.put(s,  new Team(s, "CRUD Jr"))
       s = TEAM10;teamMap.put(s,  new Team(s, "S.D. Gloria"))
    }   
    public static void getWeekResults(int weekNumber)

@@ -22,6 +22,9 @@ public class SyncSandbox
       
       map.put("C:\\Users\\Sean\\Documents", 
         DL + "backup-DS2017\\Users\\Sean\\Documents");
+
+      map.put("E:\\Music", 
+        DL + "backup-DS2017\\Users\\Sean\\E_Drive_Music");
         
       map.put("C:\\Users\\Sean\\Music", 
         DL + "backup-DS2017\\Users\\Sean\\Music");
