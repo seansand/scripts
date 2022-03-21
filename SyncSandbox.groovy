@@ -52,8 +52,12 @@ public class SyncSandbox
         DL + "backup-DS2017\\Amazon\\Documents");
       map.put("Z:\\Pictures", 
         DL + "backup-DS2017\\Amazon\\Pictures");
+      map.put("Z:\\Pictures-Private", 
+        DL + "backup-DS2017\\Amazon\\Pictures");
       map.put("Z:\\Podcasts", 
         DL + "backup-DS2017\\Amazon\\Podcasts");
+      map.put("Z:\\E-books",
+        DL + "backup-DS2017\\Amazon\\E-books");
 
  
 		//////////////

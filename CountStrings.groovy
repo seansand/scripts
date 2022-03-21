@@ -11,31 +11,94 @@ evaluate(f)
 
 String str =  '''
 
-
-(no tennis)
-xxx
-xxx
-xxx
+Tschida
 Burch
-Gross
-Ramesh
-Allen
-
-
-
-
-
-
-
-
-(no tennis)
-xxx
-xxx
-xxx
-Gross
+Miller
+Berry
+Takhar
+C. Sandquist
+S. Sandquist
 Stephenson
-Ramesh
+
+
+
+
+
+
+
+
+Berry
+Tschida
+S. Sandquist
 Medved
+C. Sandquist
+Takhar
+Helps
+Miller
+
+
+
+
+
+
+
+
+Miller
+Burch
+Tschida
+Helps
+S. Sandquist
+C. Sandquist
+Berry
+Stephenson
+
+
+
+
+
+
+
+
+Medved
+S. Sandquist
+Miller
+Stephenson
+Helps
+C. Sandquist
+Takhar
+Burch
+
+
+
+
+
+
+
+
+Stephenson
+S. Sandquist
+Berry
+Tschida
+Burch
+Helps
+Takhar
+C. Sandquist
+
+
+
+
+
+
+
+
+Medved
+Stephenson
+Helps
+Berry
+Carolan
+Burch
+Takhar
+Miller
 
 
 
@@ -45,77 +108,13 @@ Medved
 
 
 S. Sandquist
-Tschida
-Berry
-Stephenson
-Ramesh
-Burch
-Gross
-Allen
-
-
-
-
-
-
-
-
-Helps
-Tschida
-Burch
-Allen
-S. Sandquist
-Gross
 Berry
 Medved
-
-
-
-
-
-
-
-
-Helps
-Tschida
-Berry
-Medved
-S. Sandquist
-Heichert
-Carolan
 Stephenson
-
-
-
-
-
-
-
-
-Helps
-Tschida
-Ramesh
-Stephenson
-Carolan
-Burch
-Allen
-Berry
-
-
-
-
-
-
-
-
-Helps
-Stephenson
-Ramesh
-Gross
-Medved
-Heichert
 Burch
 Carolan
+Miller
+Takhar
 
 
 
