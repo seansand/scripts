@@ -2,158 +2,52 @@
 
 String str = '''
 
-DUNCAN JAREDIDCH, age 35, Wild Card
+THE THING FROM BETWEEN THE PLANES, Horrible Creature (1D8 SAN to see)
 
-Jaredhich wears two .45 automatic pistols, one in a shoulder
-holster (with 6 shots left) and one at his hip (with 2 shots). A
-large knife is scabbarded at his belt. He also carries an Elder Sign.
-Serves the Mi-Go.
+This being will appear as a dripping yellowish mass about two feet in diameter. It moves slowly across flat surfaces with a squishing, sucking sound, dripping a sticky fluid that leaves a brown stain on whatever it touches. It sees by mean of a single, large, red eyeball hidden in the center of the mass.
+STR 8  CON 16  SIZ 4  INT 2  POW 5
+DEX 12  Move 4/12 gliding  HP 1O
+Weapons: Jump and Grasp 75%, damage 1D3*
+* This damage is caused on the first round and for every round that the creature remains attached. When the creature attacks successfully, it attaches itself to the victim s face by tiny, grasping cilia which secrete a burning acid. Additionally, the creature will form tendrils that will force their way into the victim's nose, ears, and throat. On the third consecutive round of a successful attack, these tendrils have reached the brain and begin to destroy 1 point of INT per round. At the Keeper's option, the investigator could also begin to lose 1 point of APP per round due to permanent facial scarring from the acid.
+Armor: All kinetic weapons do minimum damage due to the
+soft form of the creature.
+Sanity Loss: 0/1D8 points for seeing the Thing. Additionally, a victim of a successful attack must make a SAN roll for 0/1D3 points every round that the being is attached to his face; a failed roll also means that the victim will be unable to take any rational action for the round. A person seeing a human being under attack by the thing must make a SAN roll for another 1D2/1D4 points.
 
-STR 12(70) CON 11(70) SIZ 14(75) INT 12 POW 10(55)
-DEX 13 APP 9(60) EDU 13 SAN 0 HP 13(75)
-Damage Bonus: +1D4.
-Weapons: .45 automatic pistol (x2) 65%, damage 1D10+2
-Large Knife 55%, damage 1D4+2 1D4
-Brawl 70%, damage 1D3+1D4
-Skills: Cthulhu Mythos 15%, Dodge 40%, Drive Automobile
-60%, Hide 25%, Jump 55%, Listen 35%, Mechanical Repair 45%,
-Occult 25%, Pilot Airplane 55%, Sneak 50%, Spot Hidden 40%.
-Languages: English 65%, Russian 25%.
 
-VICTOR MONTAIN, age 58, Family Friend
+DR. HANS DIETER, age 65, Mad Scientist 
 
-STR 12 CON 14 SIZ 15 INT 15 POW 12
-DEX 8 APP 13 EDU 15 SAN 40 HP 15
-Damage Bonus: +1D4.
-Skills: Bargain 90%, Credit Rating 70%, Persuade 50%
-Languages: English 75%, French 95%, Quechua 60%
+Always wears a bandage around his hand
 
-MARIA MONTAIN, age 33, Victor's Wife
+STR 6  CON 7  SIZ 7   INT 22  POW 6
+DEX 8  APP 6  EDU 28  SAN 0   HP 7
 
-Victor's wife Maria is a full-blooded Indian, born and raised in Huancucho. She does most of the work around the trading post while Victor orders her around in Quechua. She speaks no English, but if the party manages to communicate with her, she will be able to provide the most accurate version of the "Ghost" legend to be found.
+Damage Bonus: -1D4.
+Skills: Anthropology 25%, Archaeology 20%, Astronomy 35%, Chemistry 90%, Cthulhu Mythos 15%, Electrical Repair 95%, First Aid 75%, Geology 85%, History 20%, Library Use 95%, Mechanical Repair 95%, Medicine 85%, Natural History 90%, Pharmacy 85%.
+Languages: English 60%, German 95%.
 
-STR 13 CON 14 SIZ 8 INT 9 POW 10
-DEX 11 APP 9 SAN 50 EDU 4 HP 11
 
-Damage Bonus: +0.
-Skills: Occult (local) 60%.
-Languages: French 15%, Quechua 40%, Spanish 15%.
+PHILLIP JURGENS, age 32, Industrial Spy Turned Patriot
 
-SANCHO, age 28, Hard-working Guide (Maria's younger brother)
+If the investigators should remove Jurgens' hat, they will see a shaven patch on his head and a raw, six-inch scar. Dieter did not have enough time to completely program his new "zombie", but left a simple self-destruct program in him. If the investigators should expose Jurgens, the mechanism inside his head will short-circuit itself. As Jurgens' body does spastic flip-flops on the ground or floor, the side of his head will begin to smoke and melt from the heat generated inside his skull. This will, of course, kill him, and any investigator failing his SAN roll will lose 1D6 points from the sight. If Jurgens should remain unexposed, he will self-destruct anyway as soon as Dieter's robot comes on the scene.
 
-STR 12 CON 12 SIZ 9 INT 14 POW 11
-DEX 14 APP 15 EDU 8 SAN 55 HP 11
-Damage Bonus: +0
-Skills: Bargain 55%, Climb 90%, Jump 80%, Ride Llama 85%.
-Languages: English 25%, French 20%, Quechua 55%, Spanish 45%
-
-DR. LAWRENCE RICHARDS, age 33, Camp Physician
-
-STR 10 CON 11 SIZ 10 INT 17 POW 14
-DEX 12 APP 14 EDU 21 SAN 70 HP 11
-
-Damage Bonus: +0
-Skills: Anthropology 25%, Archaeology 25%, Chemistry 20%,
-First Aid 90%, Medicine 85%, Pharmacy 20%.
-Languages: English 95%, Latin 45%.
-
-HUARI INDIANS (all same)
-
-STR 12 CON 14 SIZ 12 INT 11 POW 10
-DEX 12 APP 12 EDU 2 HP 12
-
-Damage Bonus: +1D4.
-Weapons: .30-06 Bolt-action Rifle 40%, damage 2D6+4
-Knife 60%, damage 1D6+1D4
-FistlPunch 40%, damage 1D3+1D4
-Skills: Hide 60%, Sneak 40%.
-Languages: Quechua 50%.
-Spells: One Huari is a priest of Yig and knows Bind Sacred Snake of Yig, Contact Yig, and Summon Sacred Snake of Yig.
-
-NGANSA, age 100+ "The Ghost That Walks"
-
-STR 14 CON 18 SIZ 12 INT 18 POW 20
-DEX 18 APP 16 EDU 20 SAN 69 HP 15
-
-Damage Bonus: + 1D4.
-Skills: Cthulhu Mytho 20%, Hide 100%, Listen 90%, Sneak 100%, Spot Hidden 80%, Track 95%.
-Languages: English 15%, French 25%, Montagnais 100%.
-Armor: The paste that Ngansa has smeared on his body is a special mixture that he has prepared himself. It serves to repel mi-go, who are allergic to it. The material is toxic to the mi-go's alien biology and induce an extremely painful burning sensation on contact. The paste will also provide some protection from the intense heat generated by Cthugha.
-Spells: Call Cthugha, Call Ithaqua.
-
-JUAN GOYO, age 37, Peruvian Revolutionary and possible ally or enemy
-
-STR 15 CON 17 SIZ 16 INT 15 POW 14
-DEX 16 APP 16 EDU 10 SAN 55 HP 17
-Damage Bonus: +1D4.
-Weapons: .30-06 Bolt-action Rifle 90%, damage 2D6+4
-.45 Revolver 85%, damage 1D10+2
-Knife 90%, damage 2D4+2
-Skills: Fast Talk 45%, First Aid 75%, Hide 75%, Listen 65%, Navigate 60%, Persuade 80%, Pick Pocket 75%, Psychology 75%, Sneak 75%, Track 30%.
-Languages: English 35%, Quechua 50%, Spanish 65%.
-
-AVERAGE REBEL (all same)
-
-STR 15 CON 14 SIZ 14 INT 10 POW 10
-DEX 14 APP 10 EDU 3 SAN 45 HP 14
+STR 15  CON 15  SIZ 14  INT 14  POW 12
+DEX 16  APP 13  EDU 16  SAN 60  HP 15
 
 Damage Bonus: +1D4
-Weapons: .30-06 Bolt-action Rifle 70%, damage 2D6+4
-.45 Revolver 80%, damage 1D10+2
-Knife 75%, damage 2D4+2
-Skills: Hide 55%, Pick Pocket 55%, Sneak 65%.
+Skills: Chemistry 75%, Climb 80%, Dodge 85%, Drive Automobile 75%, First Aid 95%, Geology 55%, Hide 75%, Library Use 55%, Listen 80%, Natural History 65%, Psychology 50%, Sneak 75%, Spot Hidden 75%, Track 40%.
 
-JONATHAN HARRIS, age 39, Mining Engineer
 
-STR 14 CON 16 SIZ 15 INT 16 POW 11
-DEX 12 APP 13 EDU 18 SAN 0 HP 16
-Damage Bonus: +1D4.
-Weapons: .45 Revolver 50%, damage ID10+2
-Skills: Chemistry 25%, Cthulhu Mythos 50%, Geology 95%
-Languages: English 90%, Spanish 25%.
-Spells: Contact Mi-go.
+TOODEE-6, Robot
+Ostensibly designed as a prototype worker robot for industry, this model features some particularly destructive options. It is radiocontrolled and can be operated up to 1,000 feet away. Solid walls will block transmission from the control box, however. The control box is a small palm-sized device with a looped antenna. There are about a dozen unmarked switches on the face of the instrument. The robot itself is a seven-foot-tall metal cylinder. It moves fairly quickly on level ground with motorized treads. though it would have problems outside. It can turn on a dime. It has four telescoping arms with grasping claws and a small death ray mounted in its chest.
 
-MELVIN PEALE, age 42, Mine Security Chief
+STR 40 SIZ 25 (very heavy) DEX 2 * operator's
+Move 5 HP 100
+Weapons: Claws (4) 25%. damage 1D6*
+Death Ray: 20% damage 1D10
 
-STR 15 CON 16 SIZ 10 INT 15 POW 12
-DEX 16 APP 9 EDU 14 SAN 25 HP 13
-Damage Bonus: +1D4.
-Weapons: .45 Revolver 65%, damage 1D10+2
-.30-06 Bolt-action Rifle 80%, damage 2D6+4 damage
-Skills: Fast Talk 30%, Hide 75%, Listen 60%, Persuade 65%,
-Psychology 25%, Sneak 80%, Spot Hidden 75%, Track 60%.
+* Once held, the investigator will continue to take damage every round unless they overcome the Toodee-6 in a STR vs. STR roll. 
+Armor: This machine is made of tough metal. and all weapons will cause minimum damage. An impaling shot from a firearm indicates that a partially exposed joint or circuit has been hit, rendering one function of the robot useless (Keeper's choice). A bucket of water, a fire hose. or a fire extinguisher may short-circuit the entire machine. making it useless-there is a 10% chance of this per bucket or per round the fire hose or extinguisher is played over it.
 
-NWI SECURITY GUARDS (all same)
-
-STR 15 CON 16 SIZ 14 INT 10 POW 10
-DEX 15 APP 9 EDU 8 SAN 35 HP 15
-Damage Bonus: +1D4.
-Weapons: .30-06 Bolt-action Rifle 85%, damage 2D6+4
-.45 Revolver 75%, damage 1D10+2
-Knife 60%, damage 2D4+2
-Skills: Hide 50%, Sneak 65%, Spot Hidden 65%, Track 75%.
-
-MI-GO MINERS (eight, all same) - 0/1D6 SAN to see
-STR 10 CON 10 SIZ 10 INT 13 POW 13
-DEX 14 HP 10
-Move 7/9 Flying
-Weapons: Fighting 30%, damage 1D6
-  Seize (mnvr) fly and drop from a height (or lungs burst)
-Cryoray* (only 2 have), damage 2D8
-Dodge: 35%
-Armor: none, but impaling weapons (including bullets) do minimum damage
-One Mi-go knows the spell Implant Fear (costs victim 0/1D6 SAN and they are compelled to run, no POW vs POW roll)
-
-*An odd-shaped piece of gray metal that looks like a cluster of metal bubbles and glass pines. It shoots a visible beam of cold that cause 2D8 points of damage at a base range of twenty yards. The beam is slow, and a successful Dodge roll will allow someone to avoid it if he does nothing else that round. This is a small weapon designed for sentries and holds only twelve charges. An untrained user will have a base chance of 10% to use it succesfully. 
-
-MI-GO SURGEONS (four, all same) - 0/1D6 SAN to see (grant bonus die if miners already seen)
-STR 10 CON 10 SIZ 10 INT 13 POW 13
-DEX 14 HP 10
-Move 7/9 Flying
-Weapons: Fighting 30%, damage 1D6
-  Laser-knife 60% damage 2D6
-Dodge: 35%
-Armor: none, but impaling weapons (including bullets) do minimum damage
 
 '''
 

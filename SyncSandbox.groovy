@@ -3,7 +3,7 @@
 // Similar to BackupSilver, but just does a sync 
 // (it doesn't copy files that are already present).
 // This should run much faster than BackupSilver.
-// Modified March 2013
+// Modified March 2022
 
 
 public class SyncSandbox
@@ -15,7 +15,8 @@ public class SyncSandbox
    {
 		// List of Sync directories here.  Remote "from", then local "to".
 			
-      final String DL = "D:\\";  //DRIVE LETTER    
+      //final String DL = "D:\\";  //DRIVE LETTER D FOR OLD DRIVE
+      final String DL = "F:\\";  //DRIVE LETTER F FOR MY PASSPORT
          
 		Map map = new HashMap();
       
@@ -36,9 +37,12 @@ public class SyncSandbox
         DL + "backup-DS2017\\Videos"); 
       map.put("Z:\\Videos", 
         DL + "backup-DS2017\\Videos");
+
+      map.put("G:\\", 
+        DL + "backup-DS2017\\UwAlumniGoogleDrive");  
         
-      map.put("W:\\", 
-        DL + "backup-DS2017\\GoogleDrive");  
+      map.put("H:\\", 
+        DL + "backup-DS2017\\GmailGoogleDrive");  
         
       map.put("X:\\", 
         DL + "backup-DS2017\\Dropbox");
@@ -68,7 +72,7 @@ public class SyncSandbox
 		def systemIn = new BufferedReader(new InputStreamReader(System.in))
 
 		println()
-        println("Making sure Seansandbox external hard drive is hooked up to drive " + DL);
+        println("Making sure MyPassport external hard drive is hooked up to drive " + DL);
 		File test = new File(DL + "backup-DS2017\\")
         assert test.exists() && test.isDirectory();
       
