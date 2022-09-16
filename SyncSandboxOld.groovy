@@ -3,7 +3,7 @@
 // Similar to BackupSilver, but just does a sync 
 // (it doesn't copy files that are already present).
 // This should run much faster than BackupSilver.
-// Modified March 2022
+// Retired August 2022
 
 
 public class SyncSandbox
@@ -24,28 +24,28 @@ public class SyncSandbox
       map.put("C:\\Users\\Sean\\Documents", 
         DL + "backup-DS2017\\Users\\Sean\\Documents");
 
-      //map.put("E:\\Music", 
-      //  DL + "backup-DS2017\\Users\\Sean\\E_Drive_Music");
+      map.put("E:\\Music", 
+        DL + "backup-DS2017\\Users\\Sean\\E_Drive_Music");
         
-      //map.put("C:\\Users\\Sean\\Music", 
-      //  DL + "backup-DS2017\\Users\\Sean\\Music");
+      map.put("C:\\Users\\Sean\\Music", 
+        DL + "backup-DS2017\\Users\\Sean\\Music");
 
-      //map.put("Z:\\Archived Music", 
-      //  DL + "backup-DS2017\\Users\\Sean\\Music\\Amazon Music");
+      map.put("Z:\\Archived Music", 
+        DL + "backup-DS2017\\Users\\Sean\\Music\\Amazon Music");
 
-      //map.put("Z:\\My Send-to-Kindle Docs", 
-      //  DL + "backup-DS2017\\Amazon\\My Send-to-Kindle Docs");
+      map.put("Z:\\My Send-to-Kindle Docs", 
+        DL + "backup-DS2017\\Amazon\\My Send-to-Kindle Docs");
       
       //map.put("C:\\Users\\Sean\\Old Camera Uploads", 
       //  DL + "backup-DS2017\\Users\\Sean\\Old Camera Uploads");  
 
       map.put("E:\\Applications\\",
-        DL + "backup-DS2017\\Old Amazon\\Applications");
+        DL + "backup-DS2017\\Amazon\\Applications");
         
-      //map.put("E:\\Videos\\",
-      //  DL + "backup-DS2017\\Videos"); 
-      //map.put("Z:\\Videos", 
-      //  DL + "backup-DS2017\\Videos");
+      map.put("E:\\Videos\\",
+        DL + "backup-DS2017\\Videos"); 
+      map.put("Z:\\Videos", 
+        DL + "backup-DS2017\\Videos");
 
       map.put("G:\\", 
         DL + "backup-DS2017\\UwAlumniGoogleDrive");  
@@ -59,23 +59,23 @@ public class SyncSandbox
       map.put("Y:\\", 
         DL + "backup-DS2017\\OneDrive");		
         
-      //map.put("Z:\\Applications", 
-      //  DL + "backup-DS2017\\Amazon\\Applications");
+      map.put("Z:\\Applications", 
+        DL + "backup-DS2017\\Amazon\\Applications");
         
-      //map.put("Z:\\Documents", 
-      //  DL + "backup-DS2017\\Amazon\\Documents");
+      map.put("Z:\\Documents", 
+        DL + "backup-DS2017\\Amazon\\Documents");
         
-      //map.put("Z:\\Pictures", 
-      //  DL + "backup-DS2017\\Amazon\\Pictures");
+      map.put("Z:\\Pictures", 
+        DL + "backup-DS2017\\Amazon\\Pictures");
         
-      //map.put("Z:\\Pictures-Private", 
-      //  DL + "backup-DS2017\\Amazon\\Pictures-Private");
+      map.put("Z:\\Pictures-Private", 
+        DL + "backup-DS2017\\Amazon\\Pictures-Private");
         
-      //map.put("Z:\\Podcasts", 
-      //  DL + "backup-DS2017\\Amazon\\Podcasts");
+      map.put("Z:\\Podcasts", 
+        DL + "backup-DS2017\\Amazon\\Podcasts");
         
-      //map.put("Z:\\E-books",
-      //  DL + "backup-DS2017\\Amazon\\E-books");
+      map.put("Z:\\E-books",
+        DL + "backup-DS2017\\Amazon\\E-books");
 
  
 		//////////////
@@ -133,8 +133,8 @@ public class SyncSandbox
 	   
 	   remote.eachFile()
 	   {
-		  if (++counter % 1000 == 0) 
-			 print("(1K)")
+		  if (++counter % 100 == 0) 
+			 print(".")
 		  File localFile = new File(local.getCanonicalPath() + "\\" + it.getName())
 		  
 		  if (it.isDirectory())

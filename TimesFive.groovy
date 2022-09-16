@@ -1,53 +1,78 @@
 //TimesFive.groovy (Cthulhu)
 
 String str = '''
+ARAB GUARDS 
+These henchmen were trained by Katif and will lay down their lives for Edward Chandler. 
+GUARD 1 
+STR 14 CON 15 SIZ 14 INT 11 POW 10
+DEX 15 APP 9 EDU 5 SAN 0 HP 15
+Damage Bonus: +1D4. 
+Weapons: Tommygun 55%, damage 1D10+2 
+Fighting Knife 65%, damage 1D4+2+1D4 
+GUARD 2 
+STR 16 CON 12 SIZ 15 INT 10 POW 8
+DEX 12 APP 7 EDU 6 SAN 0 HP 14
+Damage Bonus: +1D4. 
+Weapons: Tommygun 45%, damage 1D10+2 
+Fighting Knife 75%, damage 1D4+2+1D4 
+GUARD 3 
+STR 11 CON 13 SIZ 10 INT 12 POW 11
+DEX 14 APP 8 EDU 6 SAN 0 HP 12
+Damage Bonus: +0. 
+INT 12 
+SAN 0 
+Weapons: Tommygun 50%, damage 1D10+2 
+.45 Revolver 85%, damage 1D10+2 
+Fighting Knife 45%, damage 1D4+2 
+GUARD 4 
+STR 16 CON 15 SIZ 14 INT 10 POW 12
+DEX 13 APP 7 EDU 5 SAN 0 HP 15 
+Damage Bonus: +1D4. 
+Weapons: Tommygun 65%, damage 1D10+2 
+Fighting Knife 65%, damage 1D4+2+1D4 
 
-THE THING FROM BETWEEN THE PLANES, Horrible Creature (1D8 SAN to see)
+EDWARD CHANDLER, age 49, Child of Destiny, disguised as Arab 
+STR 14 CON 14 SIZ 13 INT 20 POW 150 
+DEX 16 APP 20 EDU 22 SAN 0 HP 14 
+Armor: 9-point bulletproof vest. Worn at all times by Chandler 
+in public. Only covers Chandler's torso, and so has a 50% 
+chance of stopping any damage. 
+Skills: Accounting 90%, Anthropology 65%, Archaeology 85%, Art (Song) 75%, A tronomy 60%, Bargain 95%, Chemistry 
+55%, Credit Rating 95%, CthuJhu Mythos 99%, Fast Talk 85%, Geology 50%, History 95%, Law 65%, Library Use 95%, 
+Natural History 50%, Occult 75%. Persuade 95%. Pilot Aircraft 75%, Psychology 95%. 
+Languages: Ancient Egyptian 85%. Arabic 75%. Chinese 80%, English 95%. French 85%, German 75%. Greek 75%. Latin 
+80%. Romanian 75%, Spanish 75%. 
+Spells: Call/Dismiss the Beast. 
 
-This being will appear as a dripping yellowish mass about two feet in diameter. It moves slowly across flat surfaces with a squishing, sucking sound, dripping a sticky fluid that leaves a brown stain on whatever it touches. It sees by mean of a single, large, red eyeball hidden in the center of the mass.
-STR 8  CON 16  SIZ 4  INT 2  POW 5
-DEX 12  Move 4/12 gliding  HP 1O
-Weapons: Jump and Grasp 75%, damage 1D3*
-* This damage is caused on the first round and for every round that the creature remains attached. When the creature attacks successfully, it attaches itself to the victim s face by tiny, grasping cilia which secrete a burning acid. Additionally, the creature will form tendrils that will force their way into the victim's nose, ears, and throat. On the third consecutive round of a successful attack, these tendrils have reached the brain and begin to destroy 1 point of INT per round. At the Keeper's option, the investigator could also begin to lose 1 point of APP per round due to permanent facial scarring from the acid.
-Armor: All kinetic weapons do minimum damage due to the
-soft form of the creature.
-Sanity Loss: 0/1D8 points for seeing the Thing. Additionally, a victim of a successful attack must make a SAN roll for 0/1D3 points every round that the being is attached to his face; a failed roll also means that the victim will be unable to take any rational action for the round. A person seeing a human being under attack by the thing must make a SAN roll for another 1D2/1D4 points.
+BARON HAUPTMANN, age 800+, Ancient Sorcerer 
+STR 15 CON 15 SIZ 14 INT 18 POW 32 
+DEX 13 APP 16 EDU 35 SAN 0 HP 15 
+Damage Bonus: +1D4. 
+Weapons: .38 Automatic 85%. damage 1D10
+Rapier 95%. damage 1D6+1+1D4 
+Rifle 60%, none carried 
+Skills: Anthropology 75%, Archaeology 85%. Astronomy 95%, Chemistry 80%, Climb 25%. Cthulhu Mythos 99%. Orive 
+Automobile 55%, Fast Talk 80%. First Aid 95%, Geology 85%, Hide 85%, Hi tory 95%. Jump 20%. Knife 65%, Law 75%. 
+Library Use 95%, Linguist 95%, Listen 75%, Medicine 70%, Natural History 65%, Occult 95%, Persuade 50%, Pharmacy 
+90%, Psychology 85%, Ride 90%, Sneak 35% (due to bad leg), Spot Hidden 80%. 
+Languages: Nearly all at 90%+. 
+Spells: Brew Space-Mead. Call/Dismiss the Beast, Create Gate, Dread Curse of Azathoth. Elder Sign. Enchant Item, Powder of Ibn-Ghazi. Resurrection. Shrivelling. Summon/Bind Star Vampire, Voorish Sign. 
 
+LANG FU, age 2000+, Ancient Sorcerer 
+STR 8 CON 12 SIZ 7 INT 20 POW 40 
+DEX 15 APP 15 EDU 32 SAN 0 HP 10
+Damage Bonus: -1D4 
+Armor: Coat of Life reduces all kinetic damage to minimum and prevents impale.
+Skills: Anthropology 75%. Archaeology 65%, Astronomy 70%, Chemistry 50%. Cthulhu Mythos 99%. Fast Talk 85%, First Aid 95%. Geology 35%. Hide 75%, History 50%. Library Use 95%, Listen 85%. Medicine 55%. Natural History 60%. Occult 70%, Persuade 85%. Pharmacy 65%. Psychology 75%, Sneak 85%. 
+Languages: Nearly all at 90%+. 
+Spells: All spells in Call of Cthulhu rulebook, plus Call/Dismiss the Beast. Enchant Incense and Spirit Summoning Ability. 
 
-DR. HANS DIETER, age 65, Mad Scientist 
+THE BEAST (costs 1D6/1D20 to see)
 
-Always wears a bandage around his hand
-
-STR 6  CON 7  SIZ 7   INT 22  POW 6
-DEX 8  APP 6  EDU 28  SAN 0   HP 7
-
-Damage Bonus: -1D4.
-Skills: Anthropology 25%, Archaeology 20%, Astronomy 35%, Chemistry 90%, Cthulhu Mythos 15%, Electrical Repair 95%, First Aid 75%, Geology 85%, History 20%, Library Use 95%, Mechanical Repair 95%, Medicine 85%, Natural History 90%, Pharmacy 85%.
-Languages: English 60%, German 95%.
-
-
-PHILLIP JURGENS, age 32, Industrial Spy Turned Patriot
-
-If the investigators should remove Jurgens' hat, they will see a shaven patch on his head and a raw, six-inch scar. Dieter did not have enough time to completely program his new "zombie", but left a simple self-destruct program in him. If the investigators should expose Jurgens, the mechanism inside his head will short-circuit itself. As Jurgens' body does spastic flip-flops on the ground or floor, the side of his head will begin to smoke and melt from the heat generated inside his skull. This will, of course, kill him, and any investigator failing his SAN roll will lose 1D6 points from the sight. If Jurgens should remain unexposed, he will self-destruct anyway as soon as Dieter's robot comes on the scene.
-
-STR 15  CON 15  SIZ 14  INT 14  POW 12
-DEX 16  APP 13  EDU 16  SAN 60  HP 15
-
-Damage Bonus: +1D4
-Skills: Chemistry 75%, Climb 80%, Dodge 85%, Drive Automobile 75%, First Aid 95%, Geology 55%, Hide 75%, Library Use 55%, Listen 80%, Natural History 65%, Psychology 50%, Sneak 75%, Spot Hidden 75%, Track 40%.
-
-
-TOODEE-6, Robot
-Ostensibly designed as a prototype worker robot for industry, this model features some particularly destructive options. It is radiocontrolled and can be operated up to 1,000 feet away. Solid walls will block transmission from the control box, however. The control box is a small palm-sized device with a looped antenna. There are about a dozen unmarked switches on the face of the instrument. The robot itself is a seven-foot-tall metal cylinder. It moves fairly quickly on level ground with motorized treads. though it would have problems outside. It can turn on a dime. It has four telescoping arms with grasping claws and a small death ray mounted in its chest.
-
-STR 40 SIZ 25 (very heavy) DEX 2 * operator's
-Move 5 HP 100
-Weapons: Claws (4) 25%. damage 1D6*
-Death Ray: 20% damage 1D10
-
-* Once held, the investigator will continue to take damage every round unless they overcome the Toodee-6 in a STR vs. STR roll. 
-Armor: This machine is made of tough metal. and all weapons will cause minimum damage. An impaling shot from a firearm indicates that a partially exposed joint or circuit has been hit, rendering one function of the robot useless (Keeper's choice). A bucket of water, a fire hose. or a fire extinguisher may short-circuit the entire machine. making it useless-there is a 10% chance of this per bucket or per round the fire hose or extinguisher is played over it.
-
+STR 200 CON 100 SIZ 500 INT 1 POW 50 
+DEX 20  Move 12 HP 300 
+Weapons: Paw x2 50%. damage 12D6 
+Armor: 20-point stone-like hide. 
 
 '''
 

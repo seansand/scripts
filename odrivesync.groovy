@@ -14,23 +14,30 @@ assert files.size() == 1  // should only be the one directory, whose name we nee
 ODRIVE_VER = files[0].getName()
 
 def filesOrDirsToSync = 
-  ///E:\odrive\Amazon Cloud Drive\Pictures\2017\2017-09 Elizabeth (age 9.5)/
-  //E:\odrive\Amazon Cloud Drive\Pictures\2008\2008-03 Elizabeth (Private)/
-  //E:\odrive\Amazon Cloud Drive\Pictures\2017\2017-03 Elizabeth (age 9)/,
-  //E:\odrive\Amazon Cloud Drive\Pictures\2017\2017-09 Minnesota State Capitol/,
-  //E:\odrive\Amazon Cloud Drive\Pictures\2016\2016-03 Elizabeth (age 8)/,
-  //E:\odrive\Amazon Cloud Drive\Pictures\2016\2016-08 Chicago/,
-  //E:\odrive\Amazon Cloud Drive\Pictures\2016\2016-10 Elizabeth (age 8.5)/,
-  //E:\odrive\Amazon Cloud Drive\Pictures\2015\2015-05 Elizabeth (age 7)/,
-  //E:\odrive\Amazon Cloud Drive\Pictures\2015\2015-10 Elizabeth (age 7.5)/,
+
   [
    
-   /  E:\odrive\Amazon Cloud Drive\Podcasts\Dan Carlin's Hardcore History   /.trim()
+//   /  E:\odrive\Amazon Cloud Drive\Pictures\Pixel 4\Camera  /,
+
+
    
   ]
 
+// Note this must be an odrive folder (drive E)
 
-filesOrDirsToSync.each { odriveSync(it) ; println("-----") }
+
+if (filesOrDirsToSync.size() == 0)
+{
+   ClipboardMethods cm = new ClipboardMethods();
+   filesOrDirsToSync.add(cm.getClipboard())
+   println()
+   println("FROM CLIPBOARD: " + cm.getClipboard());
+   println()
+   Thread.sleep(500)
+}
+
+
+filesOrDirsToSync.each { dir -> dir = dir.trim() ; odriveSync(dir) ; println("-----") }
 
    
 void odriveSync(def fileList)
@@ -38,27 +45,39 @@ void odriveSync(def fileList)
    String pythonCmd = /U:\appdata\local\programs\python\python37\python/
    String odrivePy = /U:\.odrive\bin\$ODRIVE_VER\cli\odrive.py/
 
-   Closure c = { String fileName ->
+   Closure c;
+   c = { String fileName ->
    
+      boolean RECURSE_DIRS = true
+      int PAUSE_MILLIS = 500
+      
       File f = new File(fileName)
       
-      println(f.getCanonicalPath())
-      println("exists? ${f.exists()}")
-      println("isFile? ${f.isFile()}")
-      println("isDirectory? ${f.isDirectory()}")
+      //println(f.getCanonicalPath())
+      //println("exists? ${f.exists()}")
+      //println("isFile? ${f.isFile()}")
+      //println("isDirectory? ${f.isDirectory()}")
       
       boolean isCloudFile = f.getName().endsWith(".cloud") || f.getName().endsWith(".cloudf")
-      println("isCloudFile? $isCloudFile")
+      //println("isCloudFile? $isCloudFile")
       
       if (f.exists() && isCloudFile) {
+         println()
          println("Syncing:")
          String execStr = "$pythonCmd $odrivePy sync "
          execStr += '"' + f.getCanonicalPath() + '"'
          println execStr
          Process proc0 = Runtime.getRuntime().exec(execStr);
+         println("Waiting $PAUSE_MILLIS milliseconds.");
+         Thread.sleep(PAUSE_MILLIS)
       }      
-         
-      println()  
+      
+      if (f.exists() && f.isDirectory() && RECURSE_DIRS)
+      {
+         List<String> fList = f.list()
+         List<String> dirFileNames = fList.collect{ f.getCanonicalPath() + "\\" + it }
+         dirFileNames.each(c)
+      }
    }
 
    if (fileList instanceof String) {    // single file name
