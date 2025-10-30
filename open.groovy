@@ -57,7 +57,7 @@ class Open //implements Runnable
       {
          if (fileName.equalsIgnoreCase(it.getName()))
          {
-            String execStr = '"C:\\Program Files (x86)\\Notepad++\\notepad++.exe" '
+            String execStr = '"C:\\Program Files\\Notepad++\\notepad++.exe" '  // correct file location on PowerSpec-2025
             println execStr + it.getAbsolutePath()
             Process proc0 = Runtime.getRuntime().exec(execStr + it.getAbsolutePath());
             retval = true;

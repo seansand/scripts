@@ -70,7 +70,7 @@ for (String line : lineArray)
    LocalDate thisDate = LocalDate.parse(lineTokens[0])
    int daysBetween = Days.daysBetween(thisDate, enteredDate).getDays()
    
-   if (Math.abs(daysBetween) < 10)
+   if (Math.abs(daysBetween) < 15)
    {
       int duration = Days.daysBetween(lastDate, enteredDate).getDays()
 		newData << enteredDate.toString() + "  ($duration)"
