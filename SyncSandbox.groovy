@@ -26,17 +26,11 @@ public class SyncSandbox
 	  map.put("C:\\groovy\\scripts", 
         DL + "$TOP_LEVEL\\Applications\\groovy\\scripts");
 	  
-	  map.put("U:\\Music", 
-        DL + "$TOP_LEVEL\\Users\\$USER_NAME\\Music");
-	  
       map.put("U:\\Videos\\",
         DL + "$TOP_LEVEL\\Users\\$USER_NAME\\Videos"); 
       
       map.put("C:\\Users\\$USER_NAME\\Documents", 
         DL + "$TOP_LEVEL\\Users\\$USER_NAME\\Documents");
-
-      map.put("C:\\Applications\\",
-        DL + "$TOP_LEVEL\\Applications");
 
       map.put("G:\\", 
         DL + "$TOP_LEVEL\\GmailGoogleDrive");  
@@ -44,9 +38,17 @@ public class SyncSandbox
       map.put("X:\\", 
         DL + "$TOP_LEVEL\\Dropbox");
         
-      map.put("Y:\\", 
-        DL + "$TOP_LEVEL\\OneDrive");		
+	  // TEMPORARILY DO NOT STORE ANYTHING FROM ONEDRIVE
+	  // EVERYTHING IMPORTANT IN ONEDRIVE IS THE Y:\\Music DUPLICATED FROM GOOGLE DRIVE
+	  // ONLY SAVE ONEDRIVE IF YOU WANT MUSIC SAVED IN TWO PLACES
+      //map.put("Y:\\", 
+        //DL + "$TOP_LEVEL\\OneDrive");		
 
+	  //map.put("U:\\Music", 
+      //  DL + "$TOP_LEVEL\\Users\\$USER_NAME\\Music");
+
+	  //map.put("C:\\Applications\\",
+      // DL + "$TOP_LEVEL\\Applications");
 
       //map.put("G:\\", 
       //  DL + "$TOP_LEVEL\\UwAlumniGoogleDrive");  

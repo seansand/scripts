@@ -1,0 +1,28 @@
+//link.groovy
+
+import java.awt.Toolkit
+import java.awt.datatransfer.DataFlavor
+
+// --- 1. Read clipboard ---
+def clipboard = Toolkit.defaultToolkit.systemClipboard.getData(DataFlavor.stringFlavor)?.trim()
+
+assert clipboard instanceof String : "Clipboard does not contain text"
+assert clipboard.toLowerCase().startsWith("http") : "Clipboard text must start with 'http'"
+
+println "Clipboard URL: $clipboard"
+
+// --- 2. Load pageredirect.html ---
+File file = new File("X:/Mapped/wffl/pageredirect.html")
+assert file.exists() : "pageredirect.html not found"
+
+String html = file.text
+
+// --- 3. Replace existing URL ---
+// This regex finds the first http/https URL in the file
+String updated = html.replaceFirst(/https?:\/\/[^\s"']+/, clipboard)
+
+// --- 4. Save file ---
+file.text = updated
+
+println "Updated pageredirect.html successfully."
+println "https://tinyurl.com/seans-link"
