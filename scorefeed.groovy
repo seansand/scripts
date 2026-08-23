@@ -1,6 +1,32 @@
 import groovy.json.JsonSlurper
 
 // --------------------------------------------------------------------------
+// Helper Function to Fetch JSON via System cURL
+// --------------------------------------------------------------------------
+String fetchJson(String urlString) {
+    def command = [
+        "curl", "-s", "-L", "--compressed",
+        "-A", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+        "-H", "Accept: application/json, text/plain, */*",
+        "-H", "Accept-Language: en-US,en;q=0.9",
+        urlString
+    ]
+    
+    def process = command.execute()
+    def response = process.text.trim()
+    
+    if (process.exitValue() != 0 || !response) {
+        throw new RuntimeException("cURL process failed or returned empty output.")
+    }
+    
+    if (response.startsWith("<")) {
+        throw new RuntimeException("API returned HTML instead of JSON. Server output snippet:\n" + response.take(300))
+    }
+    
+    return response
+}
+
+// --------------------------------------------------------------------------
 // Input Argument & Data Source Selection
 // --------------------------------------------------------------------------
 String inputArg = args.length > 0 ? args[0].trim() : ""
@@ -8,34 +34,28 @@ String firstChar = inputArg ? inputArg.substring(0, 1).toUpperCase() : ""
 
 def data = null
 def jsonSlurper = new JsonSlurper()
-def testFile = new File(/C:\Temp\espn-nfl-feed1.json/)
 
 switch (firstChar) {
     case 'T':
-        println "Mode: Test File ${testFile.toString()}"
-        if (!testFile.exists()) {
-            println "Error: Test File ${testFile.toString()} not found."
+        def jsonFile = new File(/C:\Temp\espn-nfl-feed1.json/)
+        println "Mode: Test File ${jsonFile.toString()}"
+
+        if (!jsonFile.exists()) {
+            println "Error: File '${jsonFile.toString()}' not found."
             return
         }
-        data = jsonSlurper.parse(testFile)
+        data = jsonSlurper.parse(jsonFile)
         break
 
     case 'B':
-        println "Mode: Big Ten College Football (Live ESPN API)"
-        // group=7 explicitly requests all Big Ten conference games
-        String b1gUrl = "https://site.web.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80"
-        data = jsonSlurper.parseText(fetchJson(b1gUrl))
-        break
-
     case 'C':
-        println "Mode: All College Football (Live ESPN API)"
-        // groups=80 fetches top games, or remove parameter entirely for all FBS
-        String cfbUrl = "https://site.web.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard"
+        println "Mode: College Football (Live ESPN API)"
+        String cfbUrl = "https://site.web.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80"
         data = jsonSlurper.parseText(fetchJson(cfbUrl))
         break
 
     default:
-        println "Mode: NFL (Live ESPN API)"
+        println "Mode: NFL (Default Live ESPN API)"
         String nflUrl = "https://site.web.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
         data = jsonSlurper.parseText(fetchJson(nflUrl))
         break
@@ -68,12 +88,10 @@ if (firstChar == 'B') {
             def location = (team?.location ?: "").toLowerCase()
             def nickname = (team?.name ?: "").toLowerCase()
 
-            // Check if any Big Ten keyword matches name, location, or nickname
             boolean nameMatch = bigTenKeywords.any { kw -> 
                 name.contains(kw) || location == kw || nickname == kw 
             }
 
-            // Check groups array if present in JSON payload
             boolean groupMatch = false
             if (team?.groups) {
                 if (team.groups instanceof List) {
@@ -117,13 +135,30 @@ gamesToDisplay.each { event ->
     def awayName = awayTeam?.team?.displayName ?: 'Away'
     def awayScore = awayTeam?.score ?: '0'
 
+    // Extract & Determine Win Probability for Favorited Team
     def situation = competition.situation
-    def homeWinProb = "N/A"
-    
-    if (situation?.homeWinPercentage != null) {
-        homeWinProb = "${(situation.homeWinPercentage * 100).round(1)}%"
+    def homeWinDecimal = null
+
+    if (situation?.lastPlay?.probability?.homeWinPercentage != null) {
+        homeWinDecimal = situation.lastPlay.probability.homeWinPercentage
+    } else if (situation?.lastPlay?.probability?.awayWinPercentage != null) {
+        homeWinDecimal = 1.0 - situation.lastPlay.probability.awayWinPercentage
+    } else if (situation?.homeWinPercentage != null) {
+        homeWinDecimal = situation.homeWinPercentage
     } else if (competition.predictor?.homeTeam?.gameProjection != null) {
-        homeWinProb = "${competition.predictor.homeTeam.gameProjection.toDouble().round(1)}%"
+        homeWinDecimal = competition.predictor.homeTeam.gameProjection.toDouble() / 100.0
+    }
+
+    String winProbDisplay = "N/A"
+    if (homeWinDecimal != null) {
+        double homeProb = homeWinDecimal.toDouble()
+        double awayProb = 1.0 - homeProb
+        
+        if (homeProb >= awayProb) {
+            winProbDisplay = "${(homeProb * 100).round(1)}% (${homeName})"
+        } else {
+            winProbDisplay = "${(awayProb * 100).round(1)}% (${awayName})"
+        }
     }
 
     def latestPlayText = "N/A"
@@ -134,42 +169,19 @@ gamesToDisplay.each { event ->
         latestPlayText = lastPlay?.text ?: "N/A"
     }
 
+    // Print Game Block using the Helper Method
     println "----------------------------------------"
     println "${gameName}"
-    println "Status:            ${gameClock}"
-    println "Score:             ${awayName} ${awayScore} - ${homeName} ${homeScore}"
-    println "Home Win Prob:     ${homeWinProb}"
-    println "Latest Play:       ${latestPlayText}"
+    
+    printField("Status:", gameClock)
+    printField("Score:", "${awayName} ${awayScore} - ${homeName} ${homeScore}")
+    printField("Win Probability:", winProbDisplay)
+    printField("Latest Play:", latestPlayText)
 }
 
-// END OF MAIN
-
-// --------------------------------------------------------------------------
-// Helper Function to Fetch JSON via System cURL
-// --------------------------------------------------------------------------
-String fetchJson(String urlString) {
-    def command = [
-        "curl", "-s", "-L",
-        "-A", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-        "-H", "Accept: application/json, text/plain, */*",
-        "-H", "Accept-Language: en-US,en;q=0.9",
-        "-H", "Sec-Fetch-Dest: empty",
-        "-H", "Sec-Fetch-Mode: cors",
-        "-H", "Sec-Fetch-Site: same-site",
-        urlString
-    ]
-    
-    def process = command.execute()
-    def response = process.text.trim()
-    
-    if (process.exitValue() != 0 || !response) {
-        throw new RuntimeException("cURL process failed or returned empty output.")
+void printField(String label, Object value) {
+    def text = value?.toString()?.trim()
+    if (text && text != "N/A") {
+        println "${label.padRight(19)}${text}"
     }
-    
-    // Check if the response received is HTML instead of JSON
-    if (response.startsWith("<")) {
-        throw new RuntimeException("API returned HTML instead of JSON. Server output snippet:\n" + response.take(300))
-    }
-    
-    return response
 }
