@@ -21,8 +21,15 @@ switch (firstChar) {
         break
 
     case 'B':
+        println "Mode: Big Ten College Football (Live ESPN API)"
+        // group=7 explicitly requests all Big Ten conference games
+        String b1gUrl = "https://site.web.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80"
+        data = jsonSlurper.parseText(fetchJson(b1gUrl))
+        break
+
     case 'C':
-        println "Mode: College Football (Live ESPN API)"
+        println "Mode: All College Football (Live ESPN API)"
+        // groups=80 fetches top games, or remove parameter entirely for all FBS
         String cfbUrl = "https://site.web.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard"
         data = jsonSlurper.parseText(fetchJson(cfbUrl))
         break
@@ -35,18 +42,63 @@ switch (firstChar) {
 }
 
 // --------------------------------------------------------------------------
-// Game Iteration and Output Formatting
+// Filtering & Iteration
 // --------------------------------------------------------------------------
 println "=== Football Game Scores & Status ==="
 
-data.events.each { event ->
-    def gameName = event.name
+// List of Big Ten school location names and nicknames
+def bigTenKeywords = [
+    "illinois fighting illini", "indiana hoosiers", "iowa hawkeyes", 
+    "maryland terrapins", "michigan wolverines", "michigan state spartans",
+    "minnesota golden gophers", "nebraska cornhuskers", "northwestern wildcats", 
+    "ohio state buckeyes", "penn state nittany lions", "purdue boilermakers", 
+    "rutgers scarlet knights", "wisconsin badgers", "oregon ducks", 
+    "ucla bruins", "usc trojans", "washington huskies"
+]
+
+def gamesToDisplay = data.events
+
+if (firstChar == 'B') {
+    gamesToDisplay = data.events.findAll { event ->
+        def competitors = event.competitions[0].competitors
+        
+        return competitors.any { competitor ->
+            def team = competitor.team
+            def name = (team?.displayName ?: "").toLowerCase()
+            def location = (team?.location ?: "").toLowerCase()
+            def nickname = (team?.name ?: "").toLowerCase()
+
+            // Check if any Big Ten keyword matches name, location, or nickname
+            boolean nameMatch = bigTenKeywords.any { kw -> 
+                name.contains(kw) || location == kw || nickname == kw 
+            }
+
+            // Check groups array if present in JSON payload
+            boolean groupMatch = false
+            if (team?.groups) {
+                if (team.groups instanceof List) {
+                    groupMatch = team.groups.any { g -> g?.id?.toString() == "8" }
+                } else if (team.groups?.id) {
+                    groupMatch = team.groups.id.toString() == "8"
+                }
+            }
+
+            return nameMatch || groupMatch
+        }
+    }
+}
+
+// --------------------------------------------------------------------------
+// Output Display
+// --------------------------------------------------------------------------
+gamesToDisplay.each { event ->
     def competition = event.competitions[0]
+    def competitors = competition.competitors
+    def gameName = event.name
     def statusObj = competition.status
     def statusType = statusObj.type.name
     def statusDetail = statusObj.type.shortDetail ?: statusObj.type.description
     
-    // Formatting status display (Quarter and Clock)
     def gameClock = ""
     if (statusType == 'STATUS_IN_PROGRESS') {
         def period = statusObj.period ?: 1
@@ -56,9 +108,8 @@ data.events.each { event ->
         gameClock = statusDetail
     }
 
-    // Identify Home and Away Teams
-    def homeTeam = competition.competitors.find { it.homeAway == 'home' }
-    def awayTeam = competition.competitors.find { it.homeAway == 'away' }
+    def homeTeam = competitors.find { it.homeAway == 'home' }
+    def awayTeam = competitors.find { it.homeAway == 'away' }
     
     def homeName = homeTeam?.team?.displayName ?: 'Home'
     def homeScore = homeTeam?.score ?: '0'
@@ -66,7 +117,6 @@ data.events.each { event ->
     def awayName = awayTeam?.team?.displayName ?: 'Away'
     def awayScore = awayTeam?.score ?: '0'
 
-    // Extract Home Win Percentage
     def situation = competition.situation
     def homeWinProb = "N/A"
     
@@ -76,7 +126,6 @@ data.events.each { event ->
         homeWinProb = "${competition.predictor.homeTeam.gameProjection.toDouble().round(1)}%"
     }
 
-    // Extract Latest Play
     def latestPlayText = "N/A"
     if (situation?.lastPlay?.text) {
         latestPlayText = situation.lastPlay.text
