@@ -138,6 +138,7 @@ def gamesToDisplay = data.events.findAll { event ->
     def state = competition.status?.type?.state
 
     state == 'in' || (state == 'post' && competition.recent == true)
+    //true  // Display all games regardless of state
 }
 
 if (firstChar == 'B') {
@@ -265,7 +266,7 @@ void writeHtmlPage(List games, String outputPath) {
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Football Scores</title>
 <style>
-:root { --page-background:#101820; --pane-background:#17232d; --pane-border:#344756; --primary-text:#f4f7f8; --secondary-text:#b8c5cc; --score-size:5.2rem; --detail-size:2.25rem; --pane-padding:3.5rem; }
+:root { --page-background:#101820; --pane-background:#17232d; --pane-border:#344756; --primary-text:#f4f7f8; --secondary-text:#b8c5cc; --score-size:5.2rem; --detail-size:2.25rem; --pane-padding:1.5rem; }
 * { box-sizing:border-box; } html,body { width:100%; height:100%; margin:0; }
 body { background:var(--page-background); color:var(--primary-text); font-family:Arial,sans-serif; overflow:hidden; }
 #scoreboard { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:1rem; width:100vw; height:100vh; padding:1rem; }
@@ -276,7 +277,7 @@ body { background:var(--page-background); color:var(--primary-text); font-family
 .status-row { display:flex; align-items:baseline; gap:2rem; margin:.8rem 0 0; color:var(--secondary-text); min-width:0; }
 .status-row .status, .status-row .down-distance { margin:0; font-size:3.7rem; line-height:1.25; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .latest-play { white-space:normal; overflow:visible; overflow-wrap:anywhere; text-overflow:clip; }
-.empty { visibility:hidden; } .team-logo { display:none; max-height:4rem; max-width:4rem; }
+.empty { visibility:hidden; } .team-logo { display:inline-block; width:1em; height:1em; margin-right:.25em; vertical-align:-.12em; object-fit:contain; }
 </style></head><body><main id="scoreboard"></main><script>
 const games = __PAGE_DATA__;
 const rotationSeconds = __ROTATION_SECONDS__;
@@ -286,10 +287,8 @@ let page = 0;
 function renderPane(game) {
     if (!game) return '<section class="pane empty" aria-hidden="true"></section>';
     return `<section class="pane">
-        <img class="team-logo" src="${game.awayLogo}" alt="">
-        <p class="team-score">${game.awayName} ${game.awayScore}${game.awayHasPossession ? ' <span class="possession-marker">' + String.fromCodePoint(0x1F3C8) + '</span>' : ''}</p>
-        <img class="team-logo" src="${game.homeLogo}" alt="">
-        <p class="team-score">${game.homeName} ${game.homeScore}${game.homeHasPossession ? ' <span class="possession-marker">' + String.fromCodePoint(0x1F3C8) + '</span>' : ''}</p>
+        <p class="team-score"><img class="team-logo" src="${game.awayLogo}" alt="">${game.awayName} ${game.awayScore}${game.awayHasPossession ? ' <span class="possession-marker">' + String.fromCodePoint(0x1F3C8) + '</span>' : ''}</p>
+        <p class="team-score"><img class="team-logo" src="${game.homeLogo}" alt="">${game.homeName} ${game.homeScore}${game.homeHasPossession ? ' <span class="possession-marker">' + String.fromCodePoint(0x1F3C8) + '</span>' : ''}</p>
         <div class="status-row"><p class="status">${game.status}</p><p class="down-distance">${game.downDistance}</p></div><p class="detail latest-play">${game.latestPlay}</p><p class="detail">${game.winProbability}</p>
     </section>`;
 }
